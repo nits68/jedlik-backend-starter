@@ -8,21 +8,19 @@ const recipeSchema = new Schema(
         author: {
             ref: "author",
             type: Number,
-            required: [true, "author field is required"],
+            required: true,
         },
         name: {
             type: String,
-            required: [true, "recepeName field is required"],
-            unique: true,
-            dropDups: true,
+            required: true,
         },
         imageURL: {
             type: String,
-            required: [true, "imageURL field is required"],
+            required: true,
         },
         description: {
             type: String,
-            required: [true, "description field is required"],
+            required: true,
         },
         dateAdded: {
             type: Date,
@@ -30,17 +28,19 @@ const recipeSchema = new Schema(
         },
         isGlutenFree: {
             type: Boolean,
-            required: [true, "isGlutenFree field is required"],
+            required: true,
         },
         prepTime: {
             type: Number,
-            required: [true, "prepTime field is required"],
+            required: true,
         },
         easyOfPrep: {
             type: Number,
             min: [1, "Too few stars, got {VALUE}"],
             max: [5, "Too many stars, got {VALUE}"],
             required: [true, "easyOfPrep field is required"],
+            unique: true,
+            dropDups: true,
         },
     },
     { versionKey: false },
