@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "donjayamanne.githistory",
+        "eamodio.gitlens",
+        "pkief.material-icon-theme",
+        "rangav.vscode-thunder-client"
+    ]
+}

@@ -1,0 +1,50 @@
+[
+    {
+        "_id": 1,
+        "kategoria": 1,
+        "leiras": "Kertvárosi részén, egyszintes házat kínálunk nyugodt környezetben, nagy telken.",
+        "hirdetesDatuma": "2022-02-21T00:00:00.000Z",
+        "tehermenetes": true,
+        "kepUrl": "http://localhost:3000/adv01.jpg"
+    },
+    {
+        "_id": 2,
+        "kategoria": 1,
+        "leiras": "Belvárosi környezetben, árnyékos helyen kis méretú családi ház eladó. Tömegközlekedéssel könnyen megközelíthető.",
+        "hirdetesDatuma": "2022-02-28T00:00:00.000Z",
+        "tehermenetes": true,
+        "kepUrl": "http://localhost:3000/adv02.jpg"
+    },
+    {
+        "_id": 3,
+        "kategoria": 2,
+        "leiras": "Kétszintes berendezett lakás a belvárosban kiadó.",
+        "hirdetesDatuma": "2022-02-24T00:00:00.000Z",
+        "tehermenetes": true,
+        "kepUrl": "http://localhost:3000/adv03.jpg"
+    },
+    {
+        "_id": 4,
+        "kategoria": 4,
+        "leiras": "Nagy garázs kertvárosi környezetben kiadó",
+        "hirdetesDatuma": "2022-02-26T00:00:00.000Z",
+        "tehermenetes": true,
+        "kepUrl": "http://localhost:3000/adv04.jpg"
+    },
+    {
+        "_id": 5,
+        "kategoria": 5,
+        "leiras": "10 hektáros mezőhazdasági terület eladó",
+        "hirdetesDatuma": "2022-03-02T00:00:00.000Z",
+        "tehermenetes": true,
+        "kepUrl": "http://localhost:3000/adv05.jpg"
+    },
+    {
+        "_id": 6,
+        "kategoria": 6,
+        "leiras": "Felújításra szoruló üzemcsarnok zöld környezetben áron alul eladó",
+        "hirdetesDatuma": "2022-02-23T00:00:00.000Z",
+        "tehermenetes": false,
+        "kepUrl": "http://localhost:3000/adv06.jpg"
+    }
+]

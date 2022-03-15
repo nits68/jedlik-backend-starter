@@ -1,0 +1,26 @@
+[
+    {
+        "_id": 1,
+        "megnevezes": "Ház"
+    },
+    {
+        "_id": 2,
+        "megnevezes": "Lakás"
+    },
+    {
+        "_id": 3,
+        "megnevezes": "Építési telek"
+    },
+    {
+        "_id": 4,
+        "megnevezes": "Garázs"
+    },
+    {
+        "_id": 5,
+        "megnevezes": "Mezőgazdasági terület"
+    },
+    {
+        "_id": 6,
+        "megnevezes": "Ipari ingatlan"
+    }
+]
