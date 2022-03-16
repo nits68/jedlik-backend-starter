@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-const authorSchema = new Schema(
+const onesideSchema = new Schema(
     {
         _id: Number,
         name: {
@@ -15,6 +15,6 @@ const authorSchema = new Schema(
     { versionKey: false },
 );
 
-const authorModel = model("author", authorSchema, "authors");
+const onesideModel = model("oneside", onesideSchema, "onesideCollectionName");
 
-export default authorModel;
+export default onesideModel;

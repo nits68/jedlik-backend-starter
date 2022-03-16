@@ -1,26 +1,30 @@
 [
     {
         "_id": 1,
-        "megnevezes": "Ház"
+        "nev": "Személyautó"
     },
     {
         "_id": 2,
-        "megnevezes": "Lakás"
+        "nev": "Kishaszonjármű"
     },
     {
         "_id": 3,
-        "megnevezes": "Építési telek"
+        "nev": "Munkagép"
     },
     {
         "_id": 4,
-        "megnevezes": "Garázs"
+        "nev": "Motorkerékpár"
     },
     {
         "_id": 5,
-        "megnevezes": "Mezőgazdasági terület"
+        "nev": "Autóbusz"
     },
     {
         "_id": 6,
-        "megnevezes": "Ipari ingatlan"
+        "nev": "Lakókocsi"
+    },
+    {
+        "_id": 7,
+        "nev": "Hajó"
     }
 ]

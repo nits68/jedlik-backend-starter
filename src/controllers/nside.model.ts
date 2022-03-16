@@ -2,11 +2,11 @@ import { Schema, model } from "mongoose";
 // https://mongoosejs.com/docs/typescript.html
 // https://mongoosejs.com/docs/validation.html
 
-const recipeSchema = new Schema(
+const nsideSchema = new Schema(
     {
         _id: Number,
-        author: {
-            ref: "author",
+        oneside: {
+            ref: "oneside",
             type: Number,
             required: true,
         },
@@ -46,6 +46,6 @@ const recipeSchema = new Schema(
     { versionKey: false },
 );
 
-const recipeModel = model("recipe", recipeSchema, "recipes");
+const nsideModel = model("nside", nsideSchema, "nsideCollectionName");
 
-export default recipeModel;
+export default nsideModel;

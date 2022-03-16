@@ -1,11 +1,11 @@
 import { Request, Response, Router } from "express";
 import Controller from "../interfaces/controller.interface";
-import recipeModel from "./recipe.model";
+import nsideModel from "./nside.model";
 
-export default class recipeController implements Controller {
-    public path = "/recipe";
+export default class nsideController implements Controller {
+    public path = "/nside";
     public router = Router();
-    private recipeM = recipeModel;
+    private nsideM = nsideModel;
 
     constructor() {
         this.router.post(this.path, this.create);
@@ -18,7 +18,7 @@ export default class recipeController implements Controller {
     private create = async (req: Request, res: Response) => {
         try {
             const body = req.body;
-            const createdDocument = new this.recipeM({
+            const createdDocument = new this.nsideM({
                 ...body,
             });
             const savedDocument = await createdDocument.save();
@@ -31,7 +31,7 @@ export default class recipeController implements Controller {
 
     private getAll = async (req: Request, res: Response) => {
         try {
-            const data = await this.recipeM.find().populate("author", "-_id name");
+            const data = await this.nsideM.find().populate("oneside", "-_id name");
             res.send(data);
         } catch (error) {
             res.status(400);
@@ -42,7 +42,7 @@ export default class recipeController implements Controller {
     private getById = async (req: Request, res: Response) => {
         try {
             const id = req.params.id;
-            const document = await this.recipeM.findById(id).populate("author", "-_id name");
+            const document = await this.nsideM.findById(id).populate("oneside", "-_id name");
             if (document) {
                 res.send(document);
             } else {
@@ -59,7 +59,7 @@ export default class recipeController implements Controller {
         try {
             const id = req.params.id;
             const body = req.body;
-            const updatedDoc = await this.recipeM.findByIdAndUpdate(id, body, { new: true }).populate("author", "-_id name");
+            const updatedDoc = await this.nsideM.findByIdAndUpdate(id, body, { new: true }).populate("oneside", "-_id name");
             if (updatedDoc) {
                 res.send(updatedDoc);
             } else {
@@ -75,7 +75,7 @@ export default class recipeController implements Controller {
     private delete = async (req: Request, res: Response) => {
         try {
             const id = req.params.id;
-            const successResponse = await this.recipeM.findByIdAndDelete(id);
+            const successResponse = await this.nsideM.findByIdAndDelete(id);
             if (successResponse) {
                 res.sendStatus(200);
             } else {

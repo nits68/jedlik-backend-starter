@@ -1,6 +1,6 @@
 import App from "./app";
-import recipeController from "./controllers/recipe.controller";
+import nsideController from "./controllers/nside.controller";
 
-const app = new App([new recipeController()]);
+const app = new App([new nsideController()]);
 
 app.listen();

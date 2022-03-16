@@ -2,7 +2,7 @@ import * as express from "express";
 import * as mongoose from "mongoose";
 import IController from "./interfaces/controller.interface";
 import loggerMiddleware from "./middleware/logger.middleware";
-import authorModel from "./controllers/author.model";
+import onesideModel from "./controllers/oneside.model";
 
 export default class App {
     public app: express.Application;
@@ -30,6 +30,6 @@ export default class App {
         // Connect to localhost:27017, create VizsgaBackend database if not exist:
         mongoose.connect(`mongodb://localhost:27017/VizsgaBackend`);
 
-        authorModel.init(); // for populate
+        onesideModel.init(); // for populate
     }
 }
