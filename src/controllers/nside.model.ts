@@ -46,6 +46,6 @@ const nsideSchema = new Schema(
     { versionKey: false },
 );
 
-const nsideModel = model("nside", nsideSchema, "nsideCollectionName");
+const nsideModel = model("nside", nsideSchema, "hirdetesek");
 
 export default nsideModel;

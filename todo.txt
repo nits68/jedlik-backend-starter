@@ -1,9 +1,12 @@
 1. Backend vizsga starter repo klónozása, átnevezése: git clone xyz
 2. Node.js csomagok telepítése: npm i
-3. Mongo szerver indítása: startMongoDB.bat futtatása
-4. Minta adatok feltöltése: xyz.bat futtatása
+3. Mongo szerver indítása: cmd->startMongoDB.bat futtatása
+4. Minta adatok feltöltése: cmd->db.bat futtatása
 5. VS CODE indítása, frissítés, ajánlott csomagok telepítése
-6. Adatbázis nevének (VizsgaBackend) módosítása: app.ts állományban
-7. "1" oldali tábla modelljének és a kollekció nevének aktualizálása: oneside.model.ts
-8. "N" oldali tábla modelljének és a kollekció nevének aktualizálása: nside.model.ts
-9. "N" oldali kontroller (route, handlers) aktualizálása, Thunder client tesztek készítése
+6. Adatbázis nevének ("VizsgaBackend") módosítása: app.ts állományban
+7. "1" oldali tábla kollekció nevének aktualizálása: oneside.model.ts
+8. "N" oldali tábla kollekció nevének aktualizálása: nside.model.ts
+9. Fordítás indítása ("npm run dev" vagy Ctrl-Shift-B)
+10. "1" oldali tábla modelljének aktualizálása: oneside.model.ts
+11. "N" oldali tábla modelljének aktualizálása: nside.model.ts
+12. "N" oldali kontroller (route, handlers) aktualizálása, Thunder Client tesztek

@@ -1,3 +1,5 @@
+// https://mongoosejs.com/docs/validation.html#built-in-validators
+
 import { Schema, model } from "mongoose";
 
 const onesideSchema = new Schema(
@@ -15,6 +17,6 @@ const onesideSchema = new Schema(
     { versionKey: false },
 );
 
-const onesideModel = model("oneside", onesideSchema, "onesideCollectionName");
+const onesideModel = model("oneside", onesideSchema, "kategoriak");
 
 export default onesideModel;
