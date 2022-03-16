@@ -17,6 +17,6 @@ const onesideSchema = new Schema(
     { versionKey: false },
 );
 
-const onesideModel = model("oneside", onesideSchema, "kategoriak");
+const onesideModel = model("oneside", onesideSchema, "onesideCollection");
 
 export default onesideModel;
