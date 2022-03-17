@@ -3,7 +3,7 @@ import Controller from "../interfaces/controller.interface";
 import nsideModel from "./nside.model";
 
 export default class nsideController implements Controller {
-    public path = "/nside";
+    public path = "/api/xyz";
     public router = Router();
     private nsideM = nsideModel;
 

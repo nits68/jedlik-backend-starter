@@ -1,12 +1,14 @@
-1. Backend vizsga starter repo klónozása, átnevezése: git clone xyz
+1. Backend vizsga starter repo klónozása, átnevezése: git clone starter_repo_URL
 2. Node.js csomagok telepítése: npm i
-3. Mongo szerver indítása: cmd->startMongoDB.bat futtatása
-4. Minta adatok feltöltése: cmd->db.bat futtatása
+3. Mongo szerver indítása: cmd -> startMongoDB.bat futtatása
+4. Adatbázis, táblák létrehozása, mintaadatok feltöltése: cmd -> db.bat futtatása
 5. VS CODE indítása, frissítés, ajánlott csomagok telepítése
-6. Adatbázis nevének ("VizsgaBackend") módosítása: app.ts állományban
-7. "1" oldali tábla kollekció nevének aktualizálása: oneside.model.ts
-8. "N" oldali tábla kollekció nevének aktualizálása: nside.model.ts
-9. Fordítás indítása ("npm run dev" vagy Ctrl-Shift-B)
-10. "1" oldali tábla modelljének aktualizálása: oneside.model.ts
-11. "N" oldali tábla modelljének aktualizálása: nside.model.ts
-12. "N" oldali kontroller (route, handlers) aktualizálása, Thunder Client tesztek
+6. Adatbázis nevének ("VizsgaBackend") módosítása: app.ts állományban (lsd.: db.bat)
+7. "1" oldali tábla kollekció nevének aktualizálása: oneside.model.ts (lsd.: db.bat)
+8. "N" oldali tábla kollekció nevének aktualizálása: nside.model.ts (lsd.: db.bat)
+9. path = "/api/xyz" aktualizálása: nside.model.ts + Thunder-*.json
+10. Fordítás indítása ("npm run dev" vagy Ctrl-Shift-B)
+11. "1" oldali tábla modelljének aktualizálása: oneside.model.ts
+12. "N" oldali tábla modelljének aktualizálása: nside.model.ts
+13. Thunder Client teszt kollekció importálása, aktualizálása
+14. "N" oldali kontroller (route, handlers) aktualizálása - Thunder Client tesztek
