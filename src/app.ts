@@ -24,11 +24,11 @@ export default class App {
     }
 
     private connectToTheDatabase() {
-        // Connect to MongoDB Atlas, create VizsgaBackend database if not exist::
-        // mongoose.connect("mongodb+srv://m001-student:m001-student@sandbox.3fiqf.mongodb.net/VizsgaBackend?retryWrites=true&w=majority");
+        // Connect to MongoDB Atlas, create AdatbázisNeve database if not exist::
+        // mongoose.connect("mongodb+srv://m001-student:m001-student@sandbox.3fiqf.mongodb.net/AdatbázisNeve?retryWrites=true&w=majority");
 
-        // Connect to localhost:27017, create VizsgaBackend database if not exist:
-        mongoose.connect(`mongodb://localhost:27017/VizsgaBackend`);
+        // Connect to localhost:27017, create AdatbázisNeve database if not exist:
+        mongoose.connect(`mongodb://localhost:27017/AdatbázisNeve`);
 
         onesideModel.init(); // for populate
     }

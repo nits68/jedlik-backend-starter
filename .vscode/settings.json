@@ -41,5 +41,14 @@
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    "vscode-edge-devtools.webhint": false
+    "vscode-edge-devtools.webhint": false,
+    "spellright.language": [
+        "en",
+        "hu"
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "json"
+    ]
 }
