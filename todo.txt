@@ -7,7 +7,7 @@
 7. Adatbázis nevének ("AdatbázisNeve") módosítása: app.ts állományban (lsd.: db.bat)
 8. "1" oldali tábla kollekció nevének ("onesideCollection") aktualizálása: oneside.model.ts
 9. "N" oldali tábla kollekció nevének aktualizálása: nside.model.ts
-10. path = "/api/xyz" aktualizálása: nside.model.ts + Thunder-*.json
+10. path = "/api/xyz" aktualizálása: nside.model.ts + thunder-*.json
 11. Fordítás indítása ("npm run dev" vagy Ctrl-Shift-B)
 12. "1" oldali tábla modelljének aktualizálása: oneside.model.ts
 13. "N" oldali tábla modelljének aktualizálása: nside.model.ts

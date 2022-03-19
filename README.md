@@ -1,7 +1,4 @@
-# jedlik-express-mongoose-ts-backend-template for exams
-
-This template made on the basis of [Express Typescript tutorial](https://wanago.io/courses/typescript-express-tutorial/).
-NODE.JS version: v14.17.6
+# jedlik-backend-starter for exams
 
 # Links (technologies, software)
 ## Express
@@ -12,12 +9,6 @@ Elegant mongodb object modeling for node.js. [Mongoose](https://mongoosejs.com/)
 
 ## TypeScript
 [TypeScript](https://www.typescriptlang.org/) is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.
-
-## class-validator
-Allows use of decorator and non-decorator based validation. Internally uses validator.js to perform validation. [Class-validator](https://github.com/typestack/class-validator#readme) works on both browser and node.js platforms.
-
-## class-transformer
-Its ES6 and Typescript era. Nowadays you are working with classes and constructor objects more than ever. [Class-transformer](https://github.com/typestack/class-transformer#readme) allows you to transform plain object to some instance of class and versa. Also it allows to serialize / deserialize object based on criteria.
 
 ## ESlint
 [ESLint](https://eslint.org/) statically analyzes your code to quickly find problems. Many problems ESLint finds can be automatically fixed. Preprocess code, use custom parsers, and write your own rules that work alongside ESLint's built-in rules. You can customize ESLint to work exactly the way you need it for your project.
