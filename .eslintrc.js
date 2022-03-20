@@ -27,6 +27,6 @@ module.exports = {
         // "arrow-parens": ["error", "as-needed"],
         // "@typescript-eslint/no-inferrable-types": "off",
         // "@typescript-eslint/explicit-module-boundary-types": "off",
-        "@typescript-eslint/no-empty-function": "off",
+        // "@typescript-eslint/no-empty-function": "off",
     },
 };

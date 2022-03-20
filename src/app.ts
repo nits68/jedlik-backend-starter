@@ -24,13 +24,22 @@ export default class App {
     }
 
     private connectToTheDatabase() {
-        // Connect to MongoDB Atlas, create AdatbázisNeve database if not exist::
-        // mongoose.connect("mongodb+srv://m001-student:m001-student@sandbox.3fiqf.mongodb.net/AdatbázisNeve?retryWrites=true&w=majority").catch(() => {});
+        // Connect to MongoDB Atlas, create "AdatbázisNeve" database if not exist::
+        // mongoose.connect("mongodb+srv://m001-student:m001-student@sandbox.3fiqf.mongodb.net/AdatbázisNeve?retryWrites=true&w=majority", err => {
+        //     if (err) {
+        //         console.log("Unable to connect to the server. Please start MongoDB.");
+        //     }
+        // });
 
-        mongoose.connect(`mongodb://localhost:27017/AdatbázisNeve`).catch(() => {});
+        // Connect to localhost:27017, create "AdatbázisNeve" database if not exist:
+        mongoose.connect("mongodb://localhost:27017/AdatbázisNeve", err => {
+            if (err) {
+                console.log("Unable to connect to the server. Please start MongoDB.");
+            }
+        });
 
         mongoose.connection.on("error", error => {
-            console.log(`Mongoose connect error: ${error.message}`);
+            console.log(`Mongoose error message: ${error.message}`);
         });
         mongoose.connection.on("connected", () => {
             console.log("Connected to MongoDB server.");
