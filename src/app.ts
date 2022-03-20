@@ -25,10 +25,16 @@ export default class App {
 
     private connectToTheDatabase() {
         // Connect to MongoDB Atlas, create AdatbázisNeve database if not exist::
-        // mongoose.connect("mongodb+srv://m001-student:m001-student@sandbox.3fiqf.mongodb.net/AdatbázisNeve?retryWrites=true&w=majority");
+        // mongoose.connect("mongodb+srv://m001-student:m001-student@sandbox.3fiqf.mongodb.net/AdatbázisNeve?retryWrites=true&w=majority").catch(() => {});
 
-        // Connect to localhost:27017, create AdatbázisNeve database if not exist:
-        mongoose.connect(`mongodb://localhost:27017/AdatbázisNeve`);
+        mongoose.connect(`mongodb://localhost:27017/AdatbázisNeve`).catch(() => {});
+
+        mongoose.connection.on("error", error => {
+            console.log(`Mongoose connect error: ${error.message}`);
+        });
+        mongoose.connection.on("connected", () => {
+            console.log("Connected to MongoDB server.");
+        });
 
         onesideModel.init(); // for populate
     }
