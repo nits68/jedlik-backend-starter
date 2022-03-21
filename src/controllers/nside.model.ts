@@ -2,6 +2,8 @@ import { Schema, model } from "mongoose";
 // https://mongoosejs.com/docs/typescript.html
 // https://mongoosejs.com/docs/validation.html
 
+// ref: "inside" -> 1 oldali modell neve, nem kell átírni!
+
 const nsideSchema = new Schema(
     {
         _id: Number,
