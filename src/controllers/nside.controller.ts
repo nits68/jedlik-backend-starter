@@ -30,7 +30,7 @@ export default class nsideController implements Controller {
 
     private getAll = async (req: Request, res: Response) => {
         try {
-            const data = await this.nsideM.find().populate("oneside", "-_id name");
+            const data = await this.nsideM.find().populate("FK_neve", "-_id");
             res.send(data);
         } catch (error) {
             res.status(400).send(error.message);
@@ -40,7 +40,7 @@ export default class nsideController implements Controller {
     private getById = async (req: Request, res: Response) => {
         try {
             const id = req.params.id;
-            const document = await this.nsideM.findById(id).populate("oneside", "-_id name");
+            const document = await this.nsideM.findById(id).populate("FK_neve", "-_id");
             if (document) {
                 res.send(document);
             } else {

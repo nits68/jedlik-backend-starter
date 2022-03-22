@@ -1,20 +1,21 @@
 Előkészületek:
 ==============
-1. Backend vizsga starter repo klónozása, átnevezése: git clone starter_repo_URL
+1. Backend vizsga starter repo klónozása, átnevezése, git clone starter_repo_URL
 2. Node.js csomagok telepítése: npm i
-3. Források másolása
-4. Mongo szerver indítása: cmd -> startMongoDB.bat futtatása
-5. VS CODE indítása, frissítések, ajánlott csomagok telepítése
-6. Csoportos átnevezések:
-         AdatbázisNeve, TáblaNeve1, TáblaNeveN, "/api/xyz"
-7. Forrás JSON állomány átnevezése: "db_n.json" -ra
+3. VS CODE indítása, frissítések, ajánlott csomagok telepítése
+4. Csoportos átnevezések 5db:
+    AdatbázisNeve, TáblaNeve1, TáblaNeveN, FK_neve, /api/xyz
+5. Forrás JSON ("N" oldali tábla) másolása
+6. Forrás JSON állomány átnevezése: "db_n.json" -ra
 
 Feladatmegoldás:
 ================
 1. "1" oldali tábla modelljének aktualizálása: oneside.model.ts
 2. "N" oldali tábla modelljének aktualizálása: nside.model.ts
 3. "1" oldali tábla elkészítése: "db_1.json"
-4. Adatbázis, táblák létrehozása, mintaadatok feltöltése: .\db.bat
-5. Fordítás indítása ("npm run dev" vagy Ctrl-Shift-B)
-6. Thunder Client teszt kollekció importálása, aktualizálása
-7. "N" oldali kontroller (route-ok, handlers) aktualizálása - Thunder Client tesztek
+4. Mongo szerver indítása: cmd -> startMongoDB.bat futtatása
+5. Adatbázis, táblák létrehozása, mintaadatok feltöltése: .\db.bat
+6. Fordítás indítása ("npm run dev" vagy Ctrl-Shift-B)
+7. Thunder Client teszt kollekció importálása, aktualizálása
+8. "N" oldali kontroller (route, handlers) aktualizálása - Thunder Client tesztek
+

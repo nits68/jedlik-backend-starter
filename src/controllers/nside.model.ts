@@ -2,12 +2,12 @@ import { Schema, model } from "mongoose";
 // https://mongoosejs.com/docs/typescript.html
 // https://mongoosejs.com/docs/validation.html
 
-// ref: "inside" -> 1 oldali modell neve, nem kell átírni!
+// ref: "onside" -> 1 oldali modell neve, nem kell átírni!
 
 const nsideSchema = new Schema(
     {
         _id: Number,
-        oneside: {
+        FK_neve: {
             ref: "oneside",
             type: Number,
             required: true,
