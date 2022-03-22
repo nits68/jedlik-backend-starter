@@ -8,25 +8,12 @@ export default class nsideController implements Controller {
     private nsideM = nsideModel;
 
     constructor() {
-        this.router.post("/api/xyz", this.create);
         this.router.get("/api/xyz", this.getAll);
         this.router.get("/api/xyz/:id", this.getById);
+        this.router.post("/api/xyz", this.create);
         this.router.patch("/api/xyz/:id", this.modify);
         this.router.delete("/api/xyz/:id", this.delete);
     }
-
-    private create = async (req: Request, res: Response) => {
-        try {
-            const body = req.body;
-            const createdDocument = new this.nsideM({
-                ...body,
-            });
-            const savedDocument = await createdDocument.save();
-            res.send(savedDocument);
-        } catch (error) {
-            res.status(400).send(error.message);
-        }
-    };
 
     private getAll = async (req: Request, res: Response) => {
         try {
@@ -46,6 +33,19 @@ export default class nsideController implements Controller {
             } else {
                 res.status(404).send(`Document with id ${id} not found!`);
             }
+        } catch (error) {
+            res.status(400).send(error.message);
+        }
+    };
+
+    private create = async (req: Request, res: Response) => {
+        try {
+            const body = req.body;
+            const createdDocument = new this.nsideM({
+                ...body,
+            });
+            const savedDocument = await createdDocument.save();
+            res.send(savedDocument);
         } catch (error) {
             res.status(400).send(error.message);
         }

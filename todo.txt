@@ -1,12 +1,10 @@
 Előkészületek:
 ==============
-1. Backend vizsga starter repo klónozása, átnevezése, git clone starter_repo_URL
-2. Node.js csomagok telepítése: npm i
-3. VS CODE indítása, frissítések, ajánlott csomagok telepítése
-4. Csoportos átnevezések 5db:
+1. Backend vizsga starter repo klónozása, átnevezése, npm i
+2. VS CODE indítása, frissítések, ajánlott csomagok telepítése
+3. Csoportos átnevezések 5db:
     AdatbázisNeve, TáblaNeve1, TáblaNeveN, FK_neve, /api/xyz
-5. Forrás JSON ("N" oldali tábla) másolása
-6. Forrás JSON állomány átnevezése: "db_n.json" -ra
+4. Forrás JSON ("N" oldali tábla) másolása, átnevezése: "db_n.json" -ra
 
 Feladatmegoldás:
 ================
@@ -16,6 +14,6 @@ Feladatmegoldás:
 4. Mongo szerver indítása: cmd -> startMongoDB.bat futtatása
 5. Adatbázis, táblák létrehozása, mintaadatok feltöltése: .\db.bat
 6. Fordítás indítása ("npm run dev" vagy Ctrl-Shift-B)
-7. Thunder Client teszt kollekció importálása, aktualizálása
-8. "N" oldali kontroller (route, handlers) aktualizálása - Thunder Client tesztek
+7. Thunder Client teszt kollekció importálása
+8. "N" oldali kontroller (route, handlers) aktualizálása - Thunder Client tesztek aktualizálása
 

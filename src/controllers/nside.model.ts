@@ -16,17 +16,9 @@ const nsideSchema = new Schema(
             type: String,
             required: true,
         },
-        imageURL: {
-            type: String,
-            required: true,
-        },
         description: {
             type: String,
             required: true,
-        },
-        dateAdded: {
-            type: Date,
-            default: new Date(),
         },
         isGlutenFree: {
             type: Boolean,
@@ -36,13 +28,39 @@ const nsideSchema = new Schema(
             type: Number,
             required: true,
         },
-        easyOfPrep: {
+        minMaxExapme: {
             type: Number,
             min: [1, "Too few stars, got {VALUE}"],
             max: [5, "Too many stars, got {VALUE}"],
             required: [true, "easyOfPrep field is required"],
             unique: true,
             dropDups: true,
+        },
+        enumExample: {
+            type: String,
+            enum: {
+                values: ["Coffee", "Tea"],
+                message: "{VALUE} is not supported",
+            },
+        },
+        customValidatorExample: {
+            type: Number,
+            validate: {
+                validator: function (v: number) {
+                    return v % 2 == 0;
+                },
+                message: "Nem páros számot adott meg!",
+            },
+        },
+        dateExample: {
+            type: Date,
+            default: new Date(),
+            validate: {
+                validator: function (v: Date) {
+                    return v >= new Date();
+                },
+                message: "Az aktuális dátumnál nem adhat meg korábbi dátumot!",
+            },
         },
     },
     { versionKey: false },
