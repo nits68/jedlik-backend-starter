@@ -1,0 +1,162 @@
+[
+    {
+        "_id": 1,
+        "kategoria": 2,
+        "cim": "Renault Trafic 1.9 dCi L1H2 Business",
+        "leiras": "A HŰTŐ HIBÁTLANUL MŰKÖDIK. Az autóhoz fél év szavatosság, és km igazolás jár. Az autó felszereltségének ellenőrzése megtekintéskor a vevő felelőssége, utólag kiderülő eltérésre semmilyen felelősséget nem áll módunkban vállalni!",
+        "hirdetesDatuma": "2022-02-21T00:00:00.000Z",
+        "serulesmentes": true,
+        "arFt": 999999,
+        "kepUrl": "http://elit.jedlik.eu/nits/hahu/01.jpg"
+    },
+    {
+        "_id": 2,
+        "kategoria": 3,
+        "cim": "BELARUS MTZ 82",
+        "leiras": "MTZ 82 traktor, eredeti piros. 1988évj. Piros rendszámmal, 1év műszakival. Feljavított sebességváltóval. Könnyű kormányzás. Azonnal munkára fogható állapotban. A traktorhoz tartozik külön homlokrakodó is ami külön is eladó esetleg. Cserébe 80 vagy 550 traktor érdekel. Szállítás is megoldható.",
+        "hirdetesDatuma": "2022-01-02T00:00:00.000Z",
+        "serulesmentes": true,
+        "arFt": 195000,
+        "kepUrl": "http://elit.jedlik.eu/nits/hahu/02.jpg "
+    },
+    {
+        "_id": 3,
+        "kategoria": 4,
+        "cim": "BMW K 1600 B Grand America",
+        "leiras": "Eladó egy BMW K1600-as Grand America! A motort 2018. novemberében márkakereskedésben vásároltam, amely még mindig GARANCIÁLIS. A motor full-full felszereltségű, így számos extrával rendelkezik, pl gyorsváltó + hátramenet, fűthető ülések, fűthető markolat, elektromosan állítható futómű, elektromosan állítható szélvédő, tempomat, ABS, DTC, ködlámpa, riasztó.",
+        "hirdetesDatuma": "2021-01-01T00:00:00.000Z",
+        "serulesmentes": true,
+        "arFt": 6990000,
+        "kepUrl": "http://elit.jedlik.eu/nits/hahu/03.jpg"
+    },
+    {
+        "_id": 4,
+        "kategoria": 5,
+        "cim": "Peugeot Boxer",
+        "leiras": "Eladó 15 személyes Peugeot Boxer! Műszaki vizsgája lejárt, a gépkocsi működőképes, bővebb információ telefonon.",
+        "hirdetesDatuma": "2022-02-21T00:00:00.000Z",
+        "serulesmentes": true,
+        "arFt": 250000,
+        "kepUrl": "http://elit.jedlik.eu/nits/hahu/04.jpg"
+    },
+    {
+        "_id": 5,
+        "kategoria": 6,
+        "cim": "Hobby T 65 HFL",
+        "leiras": "Kihasználatlanság miatt magánszemélytől eladó. Sok extrával mint például automata műholdvevő, Truma tetőklíma, négyes kerékpártartó, padlófűtés, méretre szabott padlószőnyeg, zárt elősátor, omnistor, nagy tárolós, téli gumi garnitúra, gázpalack, fülke takaró ponyva, tolató kamera, garázsban tartott, indító akkumulátorhoz beépített csepptöltő.",
+        "hirdetesDatuma": "2022-02-15T00:00:00.000Z",
+        "serulesmentes": true,
+        "arFt": 21990000,
+        "kepUrl": "http://elit.jedlik.eu/nits/hahu/05.jpg"
+    },
+    {
+        "_id": 6,
+        "kategoria": 7,
+        "cim": "JEANNEAU SUN ODYSSEY 319",
+        "leiras": "Sun Odyssey 319, 2020.05. Magyarországi első vízretétel, garanciális, tulajdonostól eladó! YANMAR 21LE motorral, Performance teljes latnis nagyvitorla X-Grid MYLAR TAFFETA anyagból, Performance roll Genoa X-Grid MYLAR TAFFETA anyagból, Lazy Jacks a nagyvitorlához, merev alba, német vitorlakezelési rendszer",
+        "hirdetesDatuma": "2022-03-04T00:00:00.000Z",
+        "serulesmentes": true,
+        "arFt": 51000000,
+        "kepUrl": "http://elit.jedlik.eu/nits/hahu/06.jpg"
+    },
+    {
+        "_id": 7,
+        "kategoria": 1,
+        "cim": "SUBARU IMPREZA 2.0 WRX STi Prodrive 340 Lóerő",
+        "leiras": "CarPáti Kft.-Gyári jobbos prodrive sti usa wrx karosszériában balositva! Laczkó Tibi programozta 340 le popcorn(ez a durrogás) 1.2 BAR turbónyomás 100 benyára írva. Blitz lefújószelep, Hks kihangosító, Hks Camp 2 beépítve. Mishimoto alu vízhűtő, 18.-as oz racing felnik, D1 Spec turbónyomás és olajhőfok műszer. Stabil megbízható utcai sportautó. Szakemberek keze munkája!",
+        "hirdetesDatuma": "2022-02-02T00:00:00.000Z",
+        "serulesmentes": false,
+        "arFt": 8900000,
+        "kepUrl": "http://elit.jedlik.eu/nits/hahu/07.jpg"
+    },
+    {
+        "_id": 8,
+        "kategoria": 1,
+        "cim": "SUBARU IMPREZA 2.0 WRX",
+        "leiras": "Eladó sorba került Subaru Impreza WRX autónk sajnos kihasználatlanság miatt és családi autóra cserélnénk! Friss szigorított műszaki vizsgán esett át miután a kormányt átszerelték baloldalra amiről minden hivatalos dokumentum megvan! Bővebben telefonon lehet érdeklődni! 165000 mérföld van benne! /",
+        "hirdetesDatuma": "2022-02-03T00:00:00.000Z",
+        "serulesmentes": true,
+        "arFt": 3000000,
+        "kepUrl": "http://elit.jedlik.eu/nits/hahu/08.jpg"
+    },
+    {
+        "_id": 9,
+        "kategoria": 3,
+        "cim": "ZETOR 5611",
+        "leiras": "3 személyes, üzemképes. Tekintse meg további jármű kínálatunkat honlapunkon vagy a, járművek ugyanitt menüpontban!",
+        "hirdetesDatuma": "2022-03-03T00:00:00.000Z",
+        "serulesmentes": true,
+        "arFt": 790000,
+        "kepUrl": "http://elit.jedlik.eu/nits/hahu/09.jpg"
+    },
+    {
+        "_id": 10,
+        "kategoria": 4,
+        "cim": "DUCATI PANIGALE V4 Ducati Panigale V4",
+        "leiras": "Azonnal elvihető 2 km futott gyári állapotú sportmotorkerékpár, friss műszaki vizsgával, garanciális, valamint szervíz, és törzskönyvvel.Belföldi számlával, akár export nettó áron örténő értékesítés!",
+        "hirdetesDatuma": "2022-03-14T00:00:00.000Z",
+        "serulesmentes": true,
+        "arFt": 9490000,
+        "kepUrl": "http://elit.jedlik.eu/nits/hahu/10.jpg"
+    },
+    {
+        "_id": 13,
+        "kategoria": 6,
+        "cim": "Knaus Hobby",
+        "leiras": "Korának megfelelő állapotban, érvényes műszakival, WC és fürdő nélkül, lopásgátlós vonóhoroggal, nem ázik be, nem büdös, nem dohányzós, fék felújítva. található rajta hiba egész biztos, de az az árat nem befolyásolja, azonnal elvihető és indulhat a kempingezés",
+        "hirdetesDatuma": "2022-03-15T00:00:00.000Z",
+        "serulesmentes": true,
+        "arFt": 920000,
+        "kepUrl": "http://elit.jedlik.eu/nits/hahu/013.jpg"
+    },
+    {
+        "_id": 14,
+        "kategoria": 1,
+        "cim": "AUDI A6 2.5 TDI quattro Tiptronic",
+        "leiras": "Magánkézből eladó Audi A6 2.5 V6 TDI (180 LE) QUATTRO automata váltós. Jó műszaki és szép esztétikai állapot jellemzi kívül-belül. Minden szervizt időben megkapott. Új féktárcsák és fékbetétek. Jó nyári - újszerű téli gumiabroncs garnitúrával adom. Audi tipikus rozsda látható mindkét első eredeti gyári sárvédőnél, szándékosan nem lett javíttatva.",
+        "hirdetesDatuma": "2022-03-13T00:00:00.000Z",
+        "serulesmentes": false,
+        "arFt": 1490000,
+        "kepUrl": "https://elit.jedlik.eu/nits/hahu/14.jpg"
+    },
+    {
+        "_id": 15,
+        "kategoria": 2,
+        "cim": "OPEL CORSA D Van 1.3 CDTI",
+        "leiras": "Az autó 2021 októberében lett teljeskörűen leszervízelve(kötelező szerviz + EGR szelep csere) azóta 6000 kilométert futott, korához képest megfelelő állapotban van. 1 szenzont futott nyári gumi + téli gumi az árban benne van. Kihasználatlanság miatt eladó.",
+        "hirdetesDatuma": "2022-03-11T00:00:00.000Z",
+        "serulesmentes": true,
+        "arFt": 760730,
+        "kepUrl": "http://elit.jedlik.eu/nits/hahu/15.jpg"
+    },
+    {
+        "_id": 17,
+        "kategoria": 4,
+        "cim": "SUR-RON LIGHT BEE X Sport",
+        "leiras": "Sur-Ron Light Bee X-Sport, elektromos motorkerékpár(off-road) hobbi és sport célra. Kezelhetősége egy mountainbike könnyedségével vetekszik köszönhetően a csupán 50 kg-os tömegének és a kerekek között tökéletesen elfelezett teherelosztásnak, amihez óriási pluszt ad a csúcskategóriájú futómű és a meglepően erős, nyomatékos motor. 60-70 km hatótáv (normál terepen, vezető súlyának és vezetési stílusának függvényében) ",
+        "hirdetesDatuma": "2022-02-28T00:00:00.000Z",
+        "serulesmentes": true,
+        "arFt": 1570000,
+        "kepUrl": "http://elit.jedlik.eu/nits/hahu/17.jpg "
+    },
+    {
+        "_id": 18,
+        "kategoria": 5,
+        "cim": "SETRA  S-315 GT-HD",
+        "leiras": "Az autóbusz használatban van, kizárólag kirándulásokra! Nem csinált soha munkásjáratot! Folyamatosan szervízelve, mosva, takarítva van. 2003-ban helyezték forgalomba, azóta csak gondos gazdái voltak. Érvényes okmányokkal azonnal munkára fogható.",
+        "hirdetesDatuma": "2022-03-16T00:00:00.000Z",
+        "serulesmentes": true,
+        "arFt": 4800000,
+        "kepUrl": "http://elit.jedlik.eu/nits/hahu/18.jpg"
+    },
+    {
+        "_id": 19,
+        "kategoria": 6,
+        "cim": "ADRIA  Mátrix M 607 SL",
+        "leiras": "Eladó egy a képeken látható 2017-es Adria Matrix 670 SL típusú lakóautó. Félintegrált kivitel, 5 férőhellyel, hátul hosszanti irányban 2 ággyal, mely középen összeilleszthető, így akár 3 személy is kíválóan alszik rajta. Elől, a nappali részben egy elektromosan leereszthető 2 személyes hubbett ággyal, ill. a nappaliból is kialakítható 1 személyes mfekvőhely. WC és zuhanyzó külön kapott benne helyet a jobb, ill. a bal oldalon.",
+        "hirdetesDatuma": "2022-03-14T00:00:00.000Z",
+        "serulesmentes": true,
+        "arFt": 26950000,
+        "kepUrl": "http://elit.jedlik.eu/nits/hahu/019.jpg"
+    }
+]
