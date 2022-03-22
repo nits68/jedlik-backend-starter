@@ -1,0 +1,14 @@
+[
+    {
+        "_id": 123,
+        "FK_neve": 1,
+        "name": "Jedlik Ányos",
+        "description": "Minta leírás",
+        "isGlutenFree": true,
+        "prepTime": 3.4,
+        "minMaxExample": 3,
+        "enumExample": "Tea",
+        "customValidatorExample": 100,
+        "dateExample": "2056-01-01"
+    }
+]

@@ -55,7 +55,7 @@ export default class nsideController implements Controller {
         try {
             const id = req.params.id;
             const body = req.body;
-            const updatedDoc = await this.nsideM.findByIdAndUpdate(id, body, { new: true }).populate("oneside", "-_id name");
+            const updatedDoc = await this.nsideM.findByIdAndUpdate(id, body, { new: true }).populate("FK_neve", "-_id");
             if (updatedDoc) {
                 res.send(updatedDoc);
             } else {

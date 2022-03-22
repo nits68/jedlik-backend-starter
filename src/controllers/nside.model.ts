@@ -15,6 +15,7 @@ const nsideSchema = new Schema(
         name: {
             type: String,
             required: true,
+            unique: true,
         },
         description: {
             type: String,
@@ -28,13 +29,11 @@ const nsideSchema = new Schema(
             type: Number,
             required: true,
         },
-        minMaxExapme: {
+        minMaxExample: {
             type: Number,
             min: [1, "Too few stars, got {VALUE}"],
             max: [5, "Too many stars, got {VALUE}"],
-            required: [true, "easyOfPrep field is required"],
-            unique: true,
-            dropDups: true,
+            required: [true, "minMaxExample field is required"],
         },
         enumExample: {
             type: String,
@@ -55,6 +54,7 @@ const nsideSchema = new Schema(
         dateExample: {
             type: Date,
             default: new Date(),
+            max: ["2099-12-31", "Csak 21. századi dátumot adhat meg!"],
             validate: {
                 validator: function (v: Date) {
                     return v >= new Date();
