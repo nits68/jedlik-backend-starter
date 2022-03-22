@@ -54,7 +54,7 @@ const nsideSchema = new Schema(
         dateExample: {
             type: Date,
             default: new Date(),
-            max: ["2099-12-31", "Csak 21. századi dátumot adhat meg!"],
+            max: ["2100-12-31", "Csak 21. századi dátumot adhat meg!"],
             validate: {
                 validator: function (v: Date) {
                     return v >= new Date();
