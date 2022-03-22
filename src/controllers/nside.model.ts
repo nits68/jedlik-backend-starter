@@ -48,6 +48,6 @@ const nsideSchema = new Schema(
     { versionKey: false },
 );
 
-const nsideModel = model("nside", nsideSchema, "nsideCollection");
+const nsideModel = model("nside", nsideSchema, "TáblaNeveN");
 
 export default nsideModel;

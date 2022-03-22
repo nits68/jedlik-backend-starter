@@ -8,11 +8,11 @@ export default class nsideController implements Controller {
     private nsideM = nsideModel;
 
     constructor() {
-        this.router.post(this.path, this.create);
-        this.router.get(this.path, this.getAll);
-        this.router.get(`${this.path}/:id`, this.getById);
-        this.router.patch(`${this.path}/:id`, this.modify);
-        this.router.delete(`${this.path}/:id`, this.delete);
+        this.router.post("/api/xyz", this.create);
+        this.router.get("/api/xyz", this.getAll);
+        this.router.get("/api/xyz/:id", this.getById);
+        this.router.patch("/api/xyz/:id", this.modify);
+        this.router.delete("/api/xyz/:id", this.delete);
     }
 
     private create = async (req: Request, res: Response) => {

@@ -17,6 +17,6 @@ const onesideSchema = new Schema(
     { versionKey: false },
 );
 
-const onesideModel = model("oneside", onesideSchema, "onesideCollection");
+const onesideModel = model("oneside", onesideSchema, "TáblaNeve1");
 
 export default onesideModel;
