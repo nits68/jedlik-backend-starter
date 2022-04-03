@@ -11,7 +11,8 @@ export default class nsideController implements Controller {
         this.router.get("/api/xyz", this.getAll);
         this.router.get("/api/xyz/:id", this.getById);
         this.router.post("/api/xyz", this.create);
-        this.router.patch("/api/xyz/:id", this.modify);
+        this.router.patch("/api/xyz/:id", this.modifyPATCH);
+        this.router.put("/api/xyz/:id", this.modifyPUT);
         this.router.delete("/api/xyz/:id", this.delete);
     }
 
@@ -51,12 +52,28 @@ export default class nsideController implements Controller {
         }
     };
 
-    private modify = async (req: Request, res: Response) => {
+    private modifyPATCH = async (req: Request, res: Response) => {
         try {
             const id = req.params.id;
             const body = req.body;
-            const updatedDoc = await this.nsideM.findByIdAndUpdate(id, body, { new: true }).populate("FK_neve", "-_id");
+            const updatedDoc = await this.nsideM.findByIdAndUpdate(id, body, { new: true, runValidators: true }).populate("FK_neve", "-_id");
             if (updatedDoc) {
+                res.send(updatedDoc);
+            } else {
+                res.status(404).send(`Document with id ${id} not found!`);
+            }
+        } catch (error) {
+            res.status(400).send(error.message);
+        }
+    };
+
+    private modifyPUT = async (req: Request, res: Response) => {
+        try {
+            const id = req.params.id;
+            const body = req.body;
+            const modificationResult = await this.nsideM.replaceOne({ _id: id }, body, { runValidators: true });
+            if (modificationResult.modifiedCount) {
+                const updatedDoc = await this.nsideM.findById(id).populate("FK_neve", "-_id");
                 res.send(updatedDoc);
             } else {
                 res.status(404).send(`Document with id ${id} not found!`);
