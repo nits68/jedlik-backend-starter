@@ -2,9 +2,9 @@
     "recommendations": [
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
-        "donjayamanne.githistory",
-        "eamodio.gitlens",
-        "pkief.material-icon-theme",
-        "rangav.vscode-thunder-client"
+        "rangav.vscode-thunder-client",
+        "ms-edgedevtools.vscode-edge-devtools",
+        "eg2.vscode-npm-script",
+        "christian-kohler.npm-intellisense"
     ]
 }

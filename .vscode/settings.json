@@ -20,10 +20,6 @@
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
     },
-    "git.enableSmartCommit": true,
-    "git.confirmSync": false,
-    "git.autofetch": true,
-    "git.autofetchPeriod": 180,
     "files.autoSave": "afterDelay",
     "files.eol": "\r\n",
     "files.exclude": {
@@ -42,13 +38,4 @@
         "editor.defaultFormatter": "vscode.json-language-features"
     },
     "vscode-edge-devtools.webhint": false,
-    "spellright.language": [
-        "en",
-        "hu"
-    ],
-    "spellright.documentTypes": [
-        "markdown",
-        "latex",
-        "json"
-    ]
 }
