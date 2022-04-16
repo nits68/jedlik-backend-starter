@@ -6,5 +6,5 @@
     "watch": ["src/"],
     "ext": "ts, js, txt, json",
     "delay": 0,
-    "exec": "ts-node src/server.ts || exit 1"
+    "exec": "./node_modules/.bin/ts-node src/server.ts || exit 1"
 }
