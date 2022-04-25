@@ -21,7 +21,7 @@ export default class nsideController implements Controller {
             const data = await this.nsideM.find().populate("FK_neve", "-_id");
             res.send(data);
         } catch (error) {
-            res.status(400).send(error.message);
+            res.status(400).send({ message: error.message });
         }
     };
 
@@ -32,10 +32,10 @@ export default class nsideController implements Controller {
             if (document) {
                 res.send(document);
             } else {
-                res.status(404).send(`Document with id ${id} not found!`);
+                res.status(404).send({ message: `Document with id ${id} not found!` });
             }
         } catch (error) {
-            res.status(400).send(error.message);
+            res.status(400).send({ message: error.message });
         }
     };
 
@@ -48,7 +48,7 @@ export default class nsideController implements Controller {
             const savedDocument = await createdDocument.save();
             res.send(savedDocument);
         } catch (error) {
-            res.status(400).send(error.message);
+            res.status(400).send({ message: error.message });
         }
     };
 
@@ -60,10 +60,10 @@ export default class nsideController implements Controller {
             if (updatedDoc) {
                 res.send(updatedDoc);
             } else {
-                res.status(404).send(`Document with id ${id} not found!`);
+                res.status(404).send({ message: `Document with id ${id} not found!` });
             }
         } catch (error) {
-            res.status(400).send(error.message);
+            res.status(400).send({ message: error.message });
         }
     };
 
@@ -76,10 +76,10 @@ export default class nsideController implements Controller {
                 const updatedDoc = await this.nsideM.findById(id).populate("FK_neve", "-_id");
                 res.send(updatedDoc);
             } else {
-                res.status(404).send(`Document with id ${id} not found!`);
+                res.status(404).send({ message: `Document with id ${id} not found!` });
             }
         } catch (error) {
-            res.status(400).send(error.message);
+            res.status(400).send({ message: error.message });
         }
     };
 
@@ -90,10 +90,10 @@ export default class nsideController implements Controller {
             if (successResponse) {
                 res.sendStatus(200);
             } else {
-                res.status(404).send(`Document with id ${id} not found!`);
+                res.status(404).send({ message: `Document with id ${id} not found!` });
             }
         } catch (error) {
-            res.status(400).send(error.message);
+            res.status(400).send({ message: error.message });
         }
     };
 }
