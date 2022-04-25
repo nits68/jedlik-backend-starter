@@ -3,17 +3,17 @@ import Controller from "../interfaces/controller.interface";
 import nsideModel from "./nside.model";
 
 export default class nsideController implements Controller {
-    public path = "/api/xyz";
+    public path = "/api/xyzN";
     public router = Router();
     private nsideM = nsideModel;
 
     constructor() {
-        this.router.get("/api/xyz", this.getAll);
-        this.router.get("/api/xyz/:id", this.getById);
-        this.router.post("/api/xyz", this.create);
-        this.router.patch("/api/xyz/:id", this.modifyPATCH);
-        this.router.put("/api/xyz/:id", this.modifyPUT);
-        this.router.delete("/api/xyz/:id", this.delete);
+        this.router.get("/api/xyzN", this.getAll);
+        this.router.get("/api/xyzN/:id", this.getById);
+        this.router.post("/api/xyzN", this.create);
+        this.router.patch("/api/xyzN/:id", this.modifyPATCH);
+        this.router.put("/api/xyzN/:id", this.modifyPUT);
+        this.router.delete("/api/xyzN/:id", this.delete);
     }
 
     private getAll = async (req: Request, res: Response) => {
