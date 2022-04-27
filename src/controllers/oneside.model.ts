@@ -14,7 +14,7 @@ const onesideSchema = new Schema(
             required: true,
         },
     },
-    { versionKey: false },
+    { versionKey: false, toJSON: { virtuals: true }, toObject: { virtuals: true } },
 );
 
 const onesideModel = model("oneside", onesideSchema, "TáblaNeve1");

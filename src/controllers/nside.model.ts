@@ -63,8 +63,21 @@ const nsideSchema = new Schema(
             },
         },
     },
-    { versionKey: false },
+    { versionKey: false, toJSON: { virtuals: true }, toObject: { virtuals: true } },
 );
+
+// Mongoose also supports populating virtuals.
+// The ref option, which tells Mongoose which model to populate documents from.
+// The localField and foreignField options. Mongoose will populate documents from the model in ref whose foreignField matches this document's localField.
+// justOne says that it'll populate a single connected object, set it to false if you need to get an array
+// nsideSchema.virtual("populateField", {
+//     ref: "oneside",
+//     localField: "FK_neve",
+//     foreignField: "_id",
+//     justOne: true,
+// });
+// Use virtual for populate in controller:
+// const data = await this.nsideM.find().populate("populateField", "-_id field1 field2 -field3 ...");
 
 const nsideModel = model("nside", nsideSchema, "TáblaNeveN");
 
