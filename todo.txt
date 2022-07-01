@@ -4,7 +4,7 @@ Előkészületek:
 2. VS CODE indítása, frissítések, ajánlott csomagok telepítése
 3. Csoportos átnevezések 5db:
     AdatbázisNeve, TáblaNeve1, TáblaNeveN, FK_neve, /api/xyz1, /api/xyzN
-4. Forrás JSON ("N" oldali tábla) másolása, átnevezése: "db_n.json" -ra
+4. Minta db_n.json állomány törlése, forrás JSON ("N" oldali tábla) másolása, átnevezése: "db_n.json" -ra
 
 Feladatmegoldás:
 ================

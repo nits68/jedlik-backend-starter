@@ -1,4 +1,5 @@
 import { Schema, model } from "mongoose";
+import { AutoIncrementID } from "@typegoose/auto-increment";
 // https://mongoosejs.com/docs/typescript.html
 // https://mongoosejs.com/docs/validation.html
 
@@ -78,6 +79,8 @@ const nsideSchema = new Schema(
 // });
 // Use virtual for populate in controller:
 // const data = await this.nsideM.find().populate("populateField", "-_id field1 field2 -field3 ...");
+
+nsideSchema.plugin(AutoIncrementID, {});
 
 const nsideModel = model("nside", nsideSchema, "TáblaNeveN");
 

@@ -1,6 +1,7 @@
 // https://mongoosejs.com/docs/validation.html#built-in-validators
 
 import { Schema, model } from "mongoose";
+import { AutoIncrementID } from "@typegoose/auto-increment";
 
 const onesideSchema = new Schema(
     {
@@ -16,6 +17,8 @@ const onesideSchema = new Schema(
     },
     { versionKey: false, toJSON: { virtuals: true }, toObject: { virtuals: true } },
 );
+
+onesideSchema.plugin(AutoIncrementID, {});
 
 const onesideModel = model("oneside", onesideSchema, "TáblaNeve1");
 
