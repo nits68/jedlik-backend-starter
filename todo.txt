@@ -14,6 +14,7 @@ Feladatmegoldás:
 4. Mongo szerver indítása: cmd -> startMongoDB.bat futtatása
 5. Adatbázis, táblák létrehozása, mintaadatok feltöltése: .\db.bat
 6. Fordítás indítása ("npm run dev" vagy Ctrl-Shift-B)
-7. Thunder Client teszt kollekció importálása
-8. "N" oldali kontroller (route, handlers) aktualizálása - Thunder Client tesztek aktualizálása
+7. Postman vagy Thunder Client teszt kollekció importálása
+8. "N" oldali kontroller (route, handlers) aktualizálása - Postman/Thunder Client tesztek aktualizálása
+9. "1" oldali kontroller (route, handlers) aktualizálása - Postman/Thunder Client tesztek aktualizálása
 
