@@ -15,7 +15,9 @@ const onesideSchema = new Schema(
             required: true,
         },
     },
-    { versionKey: false, toJSON: { virtuals: true }, toObject: { virtuals: true } },
+    // Virtuals are not included in string version of the model instances by default.
+    // To include them, set the virtuals option to true on schema’s toObject and toJSON options.
+    { versionKey: false, id: false, toJSON: { virtuals: true }, toObject: { virtuals: true } },
 );
 
 onesideSchema.plugin(AutoIncrementID, {});

@@ -1,5 +1,6 @@
 [
     {
+        "_id": 1,
         "minMaxExample": 1,
         "prepTime": 12,
         "isGlutenFree": true,
@@ -9,6 +10,7 @@
         "dateExample": "2026.07.20"
     },
     {
+        "_id": 2,
         "minMaxExample": 4,
         "prepTime": 34,
         "isGlutenFree": false,

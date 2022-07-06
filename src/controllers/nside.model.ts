@@ -64,13 +64,16 @@ const nsideSchema = new Schema(
             },
         },
     },
-    { versionKey: false, toJSON: { virtuals: true }, toObject: { virtuals: true } },
+    // Virtuals are not included in string version of the model instances by default.
+    // To include them, set the virtuals option to true on schema’s toObject and toJSON options.
+    { versionKey: false, id: false, toJSON: { virtuals: true }, toObject: { virtuals: true } },
 );
 
 // Mongoose also supports populating virtuals.
 // The ref option, which tells Mongoose which model to populate documents from.
 // The localField and foreignField options. Mongoose will populate documents from the model in ref whose foreignField matches this document's localField.
 // justOne says that it'll populate a single connected object, set it to false if you need to get an array
+// You can give the "populateField" any name you want:
 // nsideSchema.virtual("populateField", {
 //     ref: "oneside",
 //     localField: "FK_neve",
