@@ -1,4 +1,4 @@
-# jedlik-backend-starter for exams
+# jedlik-backend-starter for exams 2022
 
 # Links (technologies, software)
 ## Express
