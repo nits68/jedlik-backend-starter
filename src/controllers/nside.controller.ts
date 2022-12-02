@@ -3,7 +3,6 @@ import Controller from "../interfaces/controller.interface";
 import nsideModel from "./nside.model";
 
 export default class nsideController implements Controller {
-    public path = "/api/xyzN";
     public router = Router();
     private nsideM = nsideModel;
 
@@ -18,7 +17,7 @@ export default class nsideController implements Controller {
 
     private getAll = async (req: Request, res: Response) => {
         try {
-            const data = await this.nsideM.find().populate("FK_neve", "-_id");
+            const data = await this.nsideM.find().populate("FK_neve");
             res.send(data);
         } catch (error) {
             res.status(400).send({ message: error.message });

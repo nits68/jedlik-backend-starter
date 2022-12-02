@@ -2,8 +2,6 @@
     "recommendations": [
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
-        "rangav.vscode-thunder-client",
-        "ms-edgedevtools.vscode-edge-devtools",
         "eg2.vscode-npm-script",
         "christian-kohler.npm-intellisense"
     ]

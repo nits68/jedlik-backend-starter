@@ -1,5 +1,8 @@
 # jedlik-backend-starter for exams
 
+# Debug your code
+Place your breakpoints and start backend server with F5 key!
+
 # Links (technologies, software)
 ## Express
 [Express](https://expressjs.com/) is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.

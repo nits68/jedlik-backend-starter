@@ -1,9 +1,9 @@
-import * as express from "express";
-import * as mongoose from "mongoose";
+import express from "express";
+import mongoose from "mongoose";
 import IController from "./interfaces/controller.interface";
-import loggerMiddleware from "./middleware/logger.middleware";
 import onesideModel from "./controllers/oneside.model";
 import nsideModel from "./controllers/nside.model";
+import morgan from "morgan";
 // import * as cors from "cors";
 
 export default class App {
@@ -13,9 +13,13 @@ export default class App {
         this.app = express();
         this.connectToTheDatabase();
         this.app.use(express.json());
-        // Enabled CORS:
+        // Enabled CORS (don't forget to import cors):
         // this.app.use(cors());
-        this.app.use(loggerMiddleware);
+
+        // morgan logger middleware for node.js
+        // settings: https://github.com/expressjs/morgan#predefined-formats
+        this.app.use(morgan(":method :url status=:status :date[iso] rt=:response-time ms"));
+
         controllers.forEach(controller => {
             this.app.use("/", controller.router);
         });
@@ -23,7 +27,7 @@ export default class App {
 
     public listen(): void {
         this.app.listen(5000, () => {
-            console.log(`App listening on the port 5000`);
+            console.log("App listening on the port 5000");
         });
     }
 
@@ -42,7 +46,8 @@ export default class App {
             console.log("Connected to MongoDB server.");
         });
 
-        onesideModel.init(); // for populate
+        // init models for populate
+        onesideModel.init();
         nsideModel.init();
     }
 }

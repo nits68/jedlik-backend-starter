@@ -3,7 +3,6 @@ import Controller from "../interfaces/controller.interface";
 import onesideModel from "./oneside.model";
 
 export default class nsideController implements Controller {
-    public path = "/api/xyz1";
     public router = Router();
     private onesideM = onesideModel;
 

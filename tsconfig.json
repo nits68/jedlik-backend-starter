@@ -2,7 +2,7 @@
   "compilerOptions": {
     "sourceMap": true,
     "target": "esnext",
-    "module": "commonjs",
+    "module": "CommonJS",
     "outDir": "./dist",
     "baseUrl": "./src",
     "alwaysStrict": true,
@@ -10,8 +10,10 @@
     "importHelpers": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
-    // "esModuleInterop": true,
+    "esModuleInterop": true,
     "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false,
+    "skipLibCheck": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "types": [
@@ -23,8 +25,7 @@
     ]
   },
   "include": [
-    "src/**/*.ts",
-    "**/test/**/*.ts"
+    "src/**/*.ts"
   ],
   "exclude": [
     "node_modules",
