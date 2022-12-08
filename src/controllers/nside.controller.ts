@@ -9,6 +9,7 @@ export default class nsideController implements Controller {
     constructor() {
         this.router.get("/api/xyzN", this.getAll);
         this.router.get("/api/xyzN/:id", this.getById);
+        this.router.get(`/api/xyzN/:offset/:limit/:sortingfield/:ascdesc/:filter?`, this.getPaginatedData);
         this.router.post("/api/xyzN", this.create);
         this.router.patch("/api/xyzN/:id", this.modifyPATCH);
         this.router.put("/api/xyzN/:id", this.modifyPUT);
@@ -33,6 +34,36 @@ export default class nsideController implements Controller {
             } else {
                 res.status(404).send({ message: `Document with id ${id} not found!` });
             }
+        } catch (error) {
+            res.status(400).send({ message: error.message });
+        }
+    };
+
+    private getPaginatedData = async (req: Request, res: Response) => {
+        try {
+            const offset = parseInt(req.params.offset);
+            const limit = parseInt(req.params.limit);
+            const sortingfield = req.params.sortingfield;
+            const ascdesc = req.params.ascdesc; // ASC or DESC
+            let paginatedData = [];
+            let count = 0;
+            if (req.params.filter && req.params.filter != "") {
+                const myRegex = new RegExp(req.params.filter, "i"); // i for case insensitive
+                count = await this.nsideM.find({ $or: [{ name: myRegex }, { description: myRegex }] }).count();
+                paginatedData = await this.nsideM
+                    .find({ $or: [{ name: myRegex }, { description: myRegex }] })
+                    .sort(`${ascdesc == "DESC" ? "-" : ""}${sortingfield}`)
+                    .skip(offset)
+                    .limit(limit);
+            } else {
+                count = await this.nsideM.countDocuments();
+                paginatedData = await this.nsideM
+                    .find({})
+                    .sort(`${ascdesc == "DESC" ? "-" : ""}${sortingfield}`)
+                    .skip(offset)
+                    .limit(limit);
+            }
+            res.send({ count: count, data: paginatedData });
         } catch (error) {
             res.status(400).send({ message: error.message });
         }
