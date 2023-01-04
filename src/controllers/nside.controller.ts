@@ -9,6 +9,7 @@ export default class nsideController implements Controller {
     constructor() {
         this.router.get("/api/xyzN", this.getAll);
         this.router.get("/api/xyzN/:id", this.getById);
+        this.router.get("/api/xyzN/keyword/:keyword", this.getByKeyword);
         this.router.get(`/api/xyzN/:offset/:limit/:sortingfield/:ascdesc/:filter?`, this.getPaginatedData);
         this.router.post("/api/xyzN", this.create);
         this.router.patch("/api/xyzN/:id", this.modifyPATCH);
@@ -34,6 +35,32 @@ export default class nsideController implements Controller {
             } else {
                 res.status(404).send({ message: `Document with id ${id} not found!` });
             }
+        } catch (error) {
+            res.status(400).send({ message: error.message });
+        }
+    };
+
+    private getByKeyword = async (req: Request, res: Response) => {
+        // Example of filtering a field of a one-sided table:
+        try {
+            const myRegex = new RegExp(req.params.keyword, "i"); // "i" for case-insensitive
+            const data = await this.nsideM.aggregate([
+                {
+                    $lookup: { from: "TáblaNeve1", foreignField: "_id", localField: "FK_neve", as: "FK_neve" },
+                    // from: The name of the one-side collection!!!
+                    // foreignField: Linking field of one-side collection (here the PK: _id)
+                    // localField: Linking field of n-side collection (here the FK: FK_neve)
+                    // as: alias name, here "FK_neve", but it can be anything you like
+                },
+                {
+                    $match: { "FK_neve.field1": myRegex },
+                },
+                {
+                    // convert array of objects to simple array (alias name):
+                    $unwind: "$FK_neve",
+                },
+            ]);
+            res.send(data);
         } catch (error) {
             res.status(400).send({ message: error.message });
         }
