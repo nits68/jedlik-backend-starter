@@ -44,6 +44,12 @@ export default class nsideController implements Controller {
         // Example of filtering a field of a one-sided table:
         try {
             const myRegex = new RegExp(req.params.keyword, "i"); // "i" for case-insensitive
+
+            // SQL to Aggregation samples:
+            // https://www.mongodb.com/docs/manual/reference/sql-aggregation-comparison/
+            // https://www.mongodb.com/docs/manual/tutorial/aggregation-zip-code-data-set/
+            // https://www.practical-mongodb-aggregations.com/
+
             const data = await this.nsideM.aggregate([
                 {
                     $lookup: { from: "TáblaNeve1", foreignField: "_id", localField: "FK_neve", as: "FK_neve" },
