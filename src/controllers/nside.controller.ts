@@ -41,7 +41,7 @@ export default class nsideController implements Controller {
     };
 
     private getByKeyword = async (req: Request, res: Response) => {
-        // Example of filtering a field of a one-sided table:
+        // Example of filtering from one-sided table:
         try {
             const myRegex = new RegExp(req.params.keyword, "i"); // "i" for case-insensitive
 
