@@ -18,6 +18,8 @@ const nsideSchema = new Schema(
         description: {
             type: String,
             required: true,
+            minLength: 10,
+            maxLength: [500, "A leírás maximum 500 karakter lehet!"],
         },
         isGlutenFree: {
             type: Boolean,
