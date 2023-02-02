@@ -1,6 +1,7 @@
 import { Schema, model } from "mongoose";
 // https://mongoosejs.com/docs/typescript.html
 // https://mongoosejs.com/docs/validation.html
+// https://transform.tools/json-to-mongoose
 
 const nsideSchema = new Schema(
     {

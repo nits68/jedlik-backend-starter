@@ -1,4 +1,5 @@
 // https://mongoosejs.com/docs/validation.html#built-in-validators
+// https://transform.tools/json-to-mongoose
 
 import { Schema, model } from "mongoose";
 
