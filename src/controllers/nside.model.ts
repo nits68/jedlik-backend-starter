@@ -74,7 +74,7 @@ const nsideSchema = new Schema(
 
 // Mongoose also supports populating virtuals.
 // Help: https://mongoosejs.com/docs/tutorials/virtuals.html#populate
-// You can give the "populateField" any name you want:
+// You can give the "populateFieldNside" any name you want:
 nsideSchema.virtual("populateFieldNside", {
     ref: "oneside",
     localField: "FK_neve",
