@@ -43,9 +43,9 @@ export default class nsideController implements Controller {
     };
 
     private getByKeyword = async (req: Request, res: Response) => {
-        // Example of filtering from one-sided table:
+        // Example of filtering from both side:
         try {
-            // const myRegex = new RegExp(req.params.keyword, "i"); // "i" for case-insensitive
+            const myRegex = new RegExp(req.params.keyword, "i"); // "i" for case-insensitive
 
             // SQL to Aggregation samples:
             // https://www.mongodb.com/docs/manual/reference/sql-aggregation-comparison/
@@ -61,14 +61,14 @@ export default class nsideController implements Controller {
                     // as: alias name, here "FK_neve", but it can be anything you like
                 },
                 {
-                    // $match: { "FK_neve.field1": myRegex },
-                    $match: { "FK_neve.field1": req.params.keyword },
+                    $match: { $or: [{ "FK_neve.field1": myRegex }, { description: myRegex }] },
+                    // $match: { "FK_neve.field1": req.params.keyword },
                 },
                 {
                     // convert array of objects to simple array (alias name):
                     $unwind: "$FK_neve",
                 },
-                { $project: { _id: 0, FK_neve: 0 } },
+                { $project: { _id: 0, prepTime: 0, "FK_neve._id": 0 } },
             ]);
             res.send(data);
         } catch (error) {
