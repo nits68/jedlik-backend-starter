@@ -20,6 +20,8 @@ export default class nsideController implements Controller {
     private getAll = async (req: Request, res: Response) => {
         try {
             const data = await this.nsideM.find().populate("FK_neve");
+            // or:
+            // const data = await this.nsideM.find().populate("virtualPop");
             res.send(data);
         } catch (error) {
             res.status(400).send({ message: error.message });

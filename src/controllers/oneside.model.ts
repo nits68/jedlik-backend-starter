@@ -22,11 +22,11 @@ const onesideSchema = new Schema(
 
 // Mongoose also supports populating virtuals.
 // Help: https://mongoosejs.com/docs/tutorials/virtuals.html#populate
-// You can give the "populateField" any name you want:
-onesideSchema.virtual("populateFieldOneSide", {
+// You can give the "virtualPop" any name you want:
+onesideSchema.virtual("virtualPop", {
     ref: "nside",
     localField: "_id",
-    foreignField: "FK_neve",
+    foreignField: "FK_neve", // ref_Field
     justOne: false,
 });
 

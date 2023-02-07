@@ -9,8 +9,8 @@ Előkészületek:
 
 Feladatmegoldás:
 ================
-1. "1" oldali tábla modelljének aktualizálása: oneside.model.ts
-2. "N" oldali tábla modelljének aktualizálása: nside.model.ts
+1. "1" oldali tábla modelljének aktualizálása: oneside.model.ts (https://transform.tools/json-to-mongoose)
+2. "N" oldali tábla modelljének aktualizálása: nside.model.ts (https://transform.tools/json-to-mongoose)
 3. Mongo szerver indítása: cmd -> startMongoDB.bat futtatása
 4. Adatbázis és a kollekciók (táblák) létrehozása, mintaadatok feltöltése a kiadott *.bat állomány futtatásával.
 5. Fordítás indítása ("npm run dev" vagy Ctrl-Shift-B)
