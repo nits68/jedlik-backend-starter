@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import IController from "./interfaces/controller.interface";
 import onesideModel from "./controllers/oneside.model";
 import nsideModel from "./controllers/nside.model";
+import { apiServer } from "./server";
 import morgan from "morgan";
 // import cors from "cors";
 
@@ -45,6 +46,7 @@ export default class App {
         });
         mongoose.connection.on("connected", () => {
             console.log("Connected to MongoDB server.");
+            apiServer.listen();
         });
 
         // init models for populate
