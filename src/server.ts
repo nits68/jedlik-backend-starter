@@ -3,4 +3,4 @@ import App from "./app";
 import nsideController from "./controllers/nside.controller";
 import onesideController from "./controllers/oneside.controller";
 
-export const apiServer = new App([new nsideController(), new onesideController()]);
+new App([new nsideController(), new onesideController()]);
