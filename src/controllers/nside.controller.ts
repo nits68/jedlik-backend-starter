@@ -123,7 +123,9 @@ export default class nsideController implements Controller {
         try {
             const id = req.params.id;
             const body = req.body;
-            const updatedDoc = await this.nsideM.findByIdAndUpdate(id, body, { new: true, runValidators: true }).populate("FK_neve", "-_id");
+            const updatedDoc = await this.nsideM
+                .findByIdAndUpdate(id, body, { new: true, runValidators: true })
+                .populate("FK_neve", "-_id");
             if (updatedDoc) {
                 res.send(updatedDoc);
             } else {
