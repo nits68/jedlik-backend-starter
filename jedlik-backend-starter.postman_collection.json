@@ -78,7 +78,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:5000/api/xyzN/0/2/prepTime/DESC/kerül",
+							"raw": "http://localhost:5000/api/xyzN/0/2/-prepTime/kerül",
 							"protocol": "http",
 							"host": [
 								"localhost"

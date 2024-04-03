@@ -15,5 +15,5 @@ Feladatmegoldás:
 4. Adatbázis és a kollekciók (táblák) létrehozása, mintaadatok feltöltése a kiadott *.bat állomány futtatásával.
 5. Fordítás indítása ("npm run dev" vagy Ctrl-Shift-B)
 6. Postman teszt kollekció importálása
-7. "1" oldali kontroller (route, handlers) aktualizálása - Postman/Thunder Client tesztek aktualizálása
-8. "N" oldali kontroller (route, handlers) aktualizálása - Postman/Thunder Client tesztek aktualizálása
+7. "1" oldali kontroller (route, handlers) aktualizálása - Postman tesztek aktualizálása
+8. "N" oldali kontroller (route, handlers) aktualizálása - Postman tesztek aktualizálása

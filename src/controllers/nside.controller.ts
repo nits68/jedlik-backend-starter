@@ -10,7 +10,7 @@ export default class nsideController implements Controller {
         this.router.get("/api/xyzN", this.getAll);
         this.router.get("/api/xyzN/:id", this.getById);
         this.router.get("/api/xyzN/keyword/:keyword", this.getByKeyword);
-        this.router.get(`/api/xyzN/:offset/:limit/:sortingfield/:ascdesc/:filter?`, this.getPaginatedData);
+        this.router.get(`/api/xyzN/:offset/:limit/:sortingfield/:filter?`, this.getPaginatedData);
         this.router.post("/api/xyzN", this.create);
         this.router.patch("/api/xyzN/:id", this.modifyPATCH);
         this.router.put("/api/xyzN/:id", this.modifyPUT);
@@ -80,8 +80,7 @@ export default class nsideController implements Controller {
         try {
             const offset = parseInt(req.params.offset);
             const limit = parseInt(req.params.limit);
-            const sortingfield = req.params.sortingfield;
-            const ascdesc = req.params.ascdesc; // ASC or DESC
+            const sortingfield = req.params.sortingfield; // with "-" prefix made DESC order
             let paginatedData = [];
             let count = 0;
             if (req.params.filter && req.params.filter != "") {
@@ -89,18 +88,15 @@ export default class nsideController implements Controller {
                 count = await this.nsideM.find({ $or: [{ name: myRegex }, { description: myRegex }] }).countDocuments();
                 paginatedData = await this.nsideM
                     .find({ $or: [{ name: myRegex }, { description: myRegex }] })
-                    .sort(`${ascdesc == "DESC" ? "-" : ""}${sortingfield}`)
+                    .sort(sortingfield)
                     .skip(offset)
                     .limit(limit);
             } else {
                 count = await this.nsideM.countDocuments();
-                paginatedData = await this.nsideM
-                    .find({})
-                    .sort(`${ascdesc == "DESC" ? "-" : ""}${sortingfield}`)
-                    .skip(offset)
-                    .limit(limit);
+                paginatedData = await this.nsideM.find({}).sort(sortingfield).skip(offset).limit(limit);
             }
-            res.send({ count: count, data: paginatedData });
+            res.append("x-total-count", `${count}`); // append total count of documents to response header
+            res.send(paginatedData);
         } catch (error) {
             res.status(400).send({ message: error.message });
         }

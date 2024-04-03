@@ -18,18 +18,18 @@
     "editor.minimap.enabled": false,
     "editor.wordWrap": "on",
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
+        "source.fixAll.eslint": "always"
     },
     "files.autoSave": "afterDelay",
     "files.eol": "\r\n",
     "files.exclude": {
         "**/.git": true,
-        "**/.gitignore": false,
+        "**/.gitignore": true,
         "**/.vscode": false,
         "**/tsconfig.json": false,
         "**/tslint.json": false,
         "**/package-lock.json": true,
-        "**/dist": false,
+        "**/dist": true,
         "**/node_modules": true,
         "**/*.js.map": true,
         "**/*.npmrc": true
