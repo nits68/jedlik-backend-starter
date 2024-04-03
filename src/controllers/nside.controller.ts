@@ -86,7 +86,7 @@ export default class nsideController implements Controller {
             let count = 0;
             if (req.params.filter && req.params.filter != "") {
                 const myRegex = new RegExp(req.params.filter, "i"); // i for case insensitive
-                count = await this.nsideM.find({ $or: [{ name: myRegex }, { description: myRegex }] }).count();
+                count = await this.nsideM.find({ $or: [{ name: myRegex }, { description: myRegex }] }).countDocuments();
                 paginatedData = await this.nsideM
                     .find({ $or: [{ name: myRegex }, { description: myRegex }] })
                     .sort(`${ascdesc == "DESC" ? "-" : ""}${sortingfield}`)
