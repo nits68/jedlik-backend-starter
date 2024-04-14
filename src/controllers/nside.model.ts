@@ -1,15 +1,16 @@
-import { Schema, model } from "mongoose";
+import { Schema, SchemaDefinition, model } from "mongoose";
 // https://mongoosejs.com/docs/typescript.html
 // https://mongoosejs.com/docs/validation.html
 // https://transform.tools/json-to-mongoose
 
-const nsideSchema = new Schema(
+const nsideSchema = new Schema<SchemaDefinition>(
     {
         _id: Number, // default type of PK (with _id identifier): Schema.Types.ObjectId
         FK_neve: {
             ref: "oneside", // "onside" -> 1 oldali modell neve, nem kell átírni!
             type: Number,
             required: true,
+            index: true,
         },
         name: {
             type: String,

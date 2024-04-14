@@ -1,9 +1,9 @@
 // https://mongoosejs.com/docs/validation.html#built-in-validators
 // https://transform.tools/json-to-mongoose
 
-import { Schema, model } from "mongoose";
+import { Schema, SchemaDefinition, model } from "mongoose";
 
-const onesideSchema = new Schema(
+const onesideSchema = new Schema<SchemaDefinition>(
     {
         _id: Number,
         name: {
