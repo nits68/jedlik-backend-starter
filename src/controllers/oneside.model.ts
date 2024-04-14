@@ -23,12 +23,12 @@ const onesideSchema = new Schema<SchemaDefinition>(
 // Mongoose also supports populating virtuals.
 // Help: https://mongoosejs.com/docs/tutorials/virtuals.html#populate
 // You can give the "virtualPop" any name you want:
-onesideSchema.virtual("virtualPop", {
-    ref: "nside",
-    localField: "_id",
-    foreignField: "FK_neve", // ref_Field
-    justOne: false,
-});
+// onesideSchema.virtual("virtualPop", {
+//     ref: "nside",
+//     localField: "_id",
+//     foreignField: "FK_neve", // ref_Field
+//     justOne: false,
+// });
 
 // Use virtual for populate in oneSide controller:
 // const data = await this.onesideM.find().populate("populateFieldOneSide", "-_id field1 field2 -field3 ...");

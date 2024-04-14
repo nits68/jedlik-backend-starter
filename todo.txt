@@ -3,8 +3,9 @@ Előkészületek:
 1. Backend vizsga starter repo klónozása, átnevezése, npm i
 2. VS CODE indítása, frissítések, ajánlott csomagok telepítése
 3. Csoportos átnevezések 5db (nevekért lsd. mongo.bat és feladatlap):
-    AdatbázisNeve, TáblaNeve1, TáblaNeveN, FK_neve, /api/xyz1, /api/xyzN *
-    * Csak az "xyz1" és "xyzN" legyen keresve-cserélve Postman végett!
+    AdatbázisNeve, TáblaNeve1, TáblaNeveN, FK_neve, /api/xyz1 *, /api/xyzN *
+    * Csak az "xyz1" és "xyzN" legyen keresve-cserélve, ha a
+    végpontok /api/TáblaNeve1, vagy /api/TáblaNeveN alakúak!
 
 
 Feladatmegoldás:
@@ -12,7 +13,7 @@ Feladatmegoldás:
 1. "1" oldali tábla modelljének aktualizálása: oneside.model.ts (https://transform.tools/json-to-mongoose)
 2. "N" oldali tábla modelljének aktualizálása: nside.model.ts (https://transform.tools/json-to-mongoose)
 3. Mongo szerver indítása: cmd -> startMongoDB.bat futtatása
-4. Adatbázis és a kollekciók (táblák) létrehozása, mintaadatok feltöltése a kiadott *.bat állomány futtatásával.
+4. Adatbázis és a kollekciók (táblák) létrehozása, mintaadatok feltöltése a kiadott mongo.bat állomány futtatásával.
 5. Fordítás indítása ("npm run dev" vagy Ctrl-Shift-B)
 6. Postman teszt kollekció importálása
 7. "1" oldali kontroller (route, handlers) aktualizálása - Postman tesztek aktualizálása
