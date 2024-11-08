@@ -4,22 +4,24 @@ import IController from "./interfaces/controller.interface";
 import onesideModel from "./controllers/oneside.model";
 import nsideModel from "./controllers/nside.model";
 import morgan from "morgan";
-// import cors from "cors";
+import cors from "cors";
 
 export default class App {
     public app: express.Application;
 
     constructor(controllers: IController[]) {
+        // Create express application:
         this.app = express();
+        // Connect to the database:
         this.connectToTheDatabase();
+        // Parse incoming requests with JSON payloads:
         this.app.use(express.json());
-        // Enabled CORS (don't forget to import cors):
-        // this.app.use(cors());
+        // Enabled CORS:
+        this.app.use(cors());
+        // morgan logger:
+        this.app.use(morgan("dev"));
 
-        // morgan logger middleware for node.js
-        // settings: https://github.com/expressjs/morgan#predefined-formats
-        this.app.use(morgan(":method :url status=:status :date[clf] length=:res[content-length] time=:response-time ms"));
-
+        // Add controllers to the app:
         controllers.forEach(controller => {
             this.app.use("/", controller.router);
         });

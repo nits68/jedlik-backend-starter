@@ -1,5 +1,4 @@
 {
-    "eslint.alwaysShowStatus": true,
     "eslint.validate": [
         "javascript",
         "typescript"
@@ -34,8 +33,4 @@
         "**/*.js.map": true,
         "**/*.npmrc": true
     },
-    "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "vscode-edge-devtools.webhint": false,
 }

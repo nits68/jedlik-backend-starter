@@ -12,7 +12,8 @@ export default class nsideController implements Controller {
 
     private getAll = async (req: Request, res: Response) => {
         try {
-            const data = await this.onesideM.find().populate("virtualPop");
+            // const data = await this.onesideM.find().populate("virtualPop");
+            const data = await this.onesideM.find();
             res.send(data);
         } catch (error) {
             res.status(400).send({ message: error.message });
