@@ -3,10 +3,7 @@ Előkészületek:
 1. Backend vizsga starter repo klónozása, átnevezése, npm i
 2. VS CODE indítása, frissítések, ajánlott csomagok telepítése
 3. Csoportos átnevezések 5db (nevekért lsd. mongo.bat és feladatlap):
-    AdatbázisNeve, TáblaNeve1, TáblaNeveN, FK_neve, /api/xyz1 *, /api/xyzN *
-    * Csak az "xyz1" és "xyzN" legyen keresve-cserélve, ha a
-    végpontok /api/TáblaNeve1, vagy /api/TáblaNeveN alakúak!
-
+    AdatbázisNeve, TáblaNeve1, TáblaNeveN, FK_neve, /api/xyz1, /api/xyzN
 
 Feladatmegoldás:
 ================
@@ -15,6 +12,9 @@ Feladatmegoldás:
 3. Mongo szerver indítása: cmd -> startMongoDB.bat futtatása
 4. Adatbázis és a kollekciók (táblák) létrehozása, mintaadatok feltöltése a kiadott mongo.bat állomány futtatásával.
 5. Fordítás indítása ("npm run dev" vagy Ctrl-Shift-B)
-6. Postman teszt kollekció importálása
-7. "1" oldali kontroller (route, handlers) aktualizálása - Postman tesztek aktualizálása
-8. "N" oldali kontroller (route, handlers) aktualizálása - Postman tesztek aktualizálása
+6. ThunderClient teszt kollekció importálása: thunder-client_teszt.json
+7. "1" oldali kontroller (route, handlers) aktualizálása - Thunder Client request-ek aktualizálása
+8. "N" oldali kontroller (route, handlers) aktualizálása - Thunder Client request-ek aktualizálása
+9. "Takarítás": model-ek, controller-ek, Thunder Client minta request-ek
+10. Thunder Client kollekció exportálása a megadott helyre
+11. Felesleges állományok/mappák törlése, majd a projekt becsomagolása a megadott helyre
