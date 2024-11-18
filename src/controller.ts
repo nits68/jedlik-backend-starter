@@ -26,7 +26,7 @@ export default class myController implements IController {
         this.router.get("/api/xyzOther", this.getOtherAll);
     }
 
-    // One-side handlers:
+    // One-side handlers *********************************************
     private getOneAll = async (req: Request, res: Response) => {
         try {
             const data = await this.one.find();
@@ -38,7 +38,7 @@ export default class myController implements IController {
         }
     };
 
-    // Many-side handlers:
+    // Many-side handlers *********************************************
     private getManyAll = async (req: Request, res: Response) => {
         try {
             const data = await this.many.find().populate("FK_neve");
@@ -182,8 +182,7 @@ export default class myController implements IController {
         }
     };
 
-    // Other-side handlers:
-    // *************************************************************************************
+    // Other-side handlers *********************************************
     private getOtherAll = async (req: Request, res: Response) => {
         try {
             const data = await this.other.find();

@@ -16,4 +16,4 @@ Feladatmegoldás:
   Postman request-ek aktualizálása
 7. "Takarítás": model-ek, controller-ek, Postman felesleges példa request-ek
 8. Postman kollekció exportálása a megadott helyre és néven
-9. Felesleges állományok, mappák törlése, majd a projekt becsomagolása a megadott helyre
+9. Felesleges állományok, mappák (node_modules) törlése, majd a projekt becsomagolása a megadott helyre és néven
