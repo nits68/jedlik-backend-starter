@@ -1,8 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
-import IController from "./interfaces/controller.interface";
-import onesideModel from "./controllers/oneside.model";
-import nsideModel from "./controllers/nside.model";
+import IController from "./interfaces";
+import { oneSideModel, manySideModel, otherSideModel } from "./models";
 import morgan from "morgan";
 import cors from "cors";
 
@@ -47,7 +46,8 @@ export default class App {
         });
 
         // init models for populate
-        onesideModel.init();
-        nsideModel.init();
+        oneSideModel.init();
+        manySideModel.init();
+        otherSideModel.init();
     }
 }

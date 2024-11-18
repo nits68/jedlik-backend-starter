@@ -2,9 +2,6 @@
     "recommendations": [
         "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
-        "christian-kohler.npm-intellisense",
-        "christian-kohler.path-intellisense",
         "tomoki1207.pdf",
-        "rangav.vscode-thunder-client"
     ]
 }

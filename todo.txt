@@ -2,19 +2,18 @@ Előkészületek:
 ==============
 1. Backend vizsga starter repo klónozása, átnevezése, npm i
 2. VS CODE indítása, frissítések, ajánlott csomagok telepítése
-3. Csoportos átnevezések 5db (nevekért lsd. mongo.bat és feladatlap):
-    AdatbázisNeve, TáblaNeve1, TáblaNeveN, FK_neve, /api/xyz1, /api/xyzN
+3. Csoportos átnevezések 6db (azonoítókért lsd. mongo.bat és feladatlap):
+    AdatbázisNeve, TáblaNeveOne, TáblaNeveMany, TáblaNeveOther, FK_neve, /api/xyzMany
 
 Feladatmegoldás:
 ================
-1. "1" oldali tábla modelljének aktualizálása: oneside.model.ts (https://transform.tools/json-to-mongoose)
-2. "N" oldali tábla modelljének aktualizálása: nside.model.ts (https://transform.tools/json-to-mongoose)
-3. Mongo szerver indítása: cmd -> startMongoDB.bat futtatása
-4. Adatbázis és a kollekciók (táblák) létrehozása, mintaadatok feltöltése a kiadott mongo.bat állomány futtatásával.
-5. Fordítás indítása ("npm run dev" vagy Ctrl-Shift-B)
-6. ThunderClient teszt kollekció importálása: thunder-client_teszt.json
-7. "1" oldali kontroller (route, handlers) aktualizálása - Thunder Client request-ek aktualizálása
-8. "N" oldali kontroller (route, handlers) aktualizálása - Thunder Client request-ek aktualizálása
-9. "Takarítás": model-ek, controller-ek, Thunder Client minta request-ek
-10. Thunder Client kollekció exportálása a megadott helyre
-11. Felesleges állományok/mappák törlése, majd a projekt becsomagolása a megadott helyre
+1. "one", "many" és "other" oldali táblák modelljeinek aktualizálása: models.ts (https://transform.tools/json-to-mongoose)
+2. Mongo szerver indítása: cmd -> startMongoDB.bat futtatása
+3. Adatbázis és a kollekciók (táblák) létrehozása, mintaadatok feltöltése a kiadott mongo.bat, vagy a sablon mongo_import/mongo.bat futtatásával.
+4. Fordítás indítása ("npm run dev" vagy Ctrl-Shift-B)
+5. Postman teszt kollekció importálása: postman_tests.json
+6. "one", "many" és "other" oldali kontrollerek (routes, handlers) aktualizálása: controllers.ts
+  Postman request-ek aktualizálása
+7. "Takarítás": model-ek, controller-ek, Postman felesleges példa request-ek
+8. Postman kollekció exportálása a megadott helyre és néven
+9. Felesleges állományok, mappák törlése, majd a projekt becsomagolása a megadott helyre

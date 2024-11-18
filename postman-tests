@@ -1,0 +1,216 @@
+{
+	"info": {
+		"_postman_id": "c3729cec-0d43-41bd-9d9c-9e4354c503a8",
+		"name": "jedlik-backend-starter",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13294158"
+	},
+	"item": [
+		{
+			"name": "getManyAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/xyzMany",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"xyzMany"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getManyById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/xyzMany/101",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"xyzMany",
+						"101"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getManyByKeyword",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/xyzMany/keyword/kerül",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"xyzMany",
+						"keyword",
+						"kerül"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getManyPaginate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/api/xyzMany/0/2/-prepTime/kerül",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"xyzMany",
+						"0",
+						"2",
+						"-prepTime",
+						"kerül"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createMany",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\": 99,\r\n    \"minMaxExample\": 2,\r\n    \"prepTime\": 12,\r\n    \"isGlutenFree\": true,\r\n    \"description\": \"leírás szövege ide kerül majdanán\",\r\n    \"name\": \"recept neve 99\",\r\n    \"FK_neve\": 1,\r\n    \"dateExample\": \"2025-07-19T22:00:00.000Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/xyzMany",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"xyzMany"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modifyManyPUT",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"minMaxExample\": 3,\r\n    \"prepTime\": 12,\r\n    \"isGlutenFree\": true,\r\n    \"description\": \"leírás szövege ide kerül majdanán\",\r\n    \"name\": \"recept neve 91219\",\r\n    \"FK_neve\": 1,\r\n    \"dateExample\": \"2029-07-19T22:00:00.000Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/xyzMany/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"xyzMany",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modifyManyPUT Copy",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"description\": \"leírás ÚJ szövege ide kerül majdanán\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/xyzMany/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"xyzMany",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteMany",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/xyzMany/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"xyzMany",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

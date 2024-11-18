@@ -1,37 +1,59 @@
 import { Request, Response, Router } from "express";
-import Controller from "../interfaces/controller.interface";
-import nsideModel from "./nside.model";
+import IController from "./interfaces";
+import { oneSideModel, manySideModel, otherSideModel } from "./models";
 
-export default class nsideController implements Controller {
+export default class myController implements IController {
     public router = Router();
-    private nsideM = nsideModel;
+    private one = oneSideModel;
+    private many = manySideModel;
+    private other = otherSideModel;
 
     constructor() {
-        this.router.get("/api/xyzN", this.getAll);
-        this.router.get("/api/xyzN/:id", this.getById);
-        this.router.get("/api/xyzN/keyword/:keyword", this.getByKeyword);
-        this.router.get(`/api/xyzN/:offset/:limit/:sortingfield/:filter?`, this.getPaginatedData);
-        this.router.post("/api/xyzN", this.create);
-        this.router.patch("/api/xyzN/:id", this.modifyPATCH);
-        this.router.put("/api/xyzN/:id", this.modifyPUT);
-        this.router.delete("/api/xyzN/:id", this.delete);
+        // One-side example routes:
+        this.router.get("/api/xyzOne", this.getOneAll);
+
+        // Many-side example routes:
+        this.router.get("/api/xyzMany/", this.getManyAll);
+        this.router.get("/api/xyzMany/:id", this.getManyById);
+        this.router.get("/api/xyzMany/keyword/:keyword", this.getManyByKeyword);
+        this.router.get(`/api/xyzMany/:offset/:limit/:sortingfield/:filter?`, this.getManyPaginated);
+        this.router.post("/api/xyzMany", this.createMany);
+        this.router.patch("/api/xyzMany/:id", this.modifyManyPATCH);
+        this.router.put("/api/xyzMany/:id", this.modifyManyPUT);
+        this.router.delete("/api/xyzMany/:id", this.deleteMany);
+
+        // Other-side routes:
+        this.router.get("/api/xyzOther", this.getOtherAll);
     }
 
-    private getAll = async (req: Request, res: Response) => {
+    // One-side handlers:
+    private getOneAll = async (req: Request, res: Response) => {
         try {
-            const data = await this.nsideM.find().populate("FK_neve");
+            const data = await this.one.find();
             // or:
-            // const data = await this.nsideM.find().populate("virtualPop");
+            // const data = await this.many.find().populate("virtualPop");
             res.send(data);
         } catch (error) {
             res.status(400).send({ message: error.message });
         }
     };
 
-    private getById = async (req: Request, res: Response) => {
+    // Many-side handlers:
+    private getManyAll = async (req: Request, res: Response) => {
+        try {
+            const data = await this.many.find().populate("FK_neve");
+            // or:
+            // const data = await this.many.find().populate("virtualPop");
+            res.send(data);
+        } catch (error) {
+            res.status(400).send({ message: error.message });
+        }
+    };
+
+    private getManyById = async (req: Request, res: Response) => {
         try {
             const id = req.params.id;
-            const document = await this.nsideM.findById(id).populate("FK_neve", "-_id");
+            const document = await this.many.findById(id).populate("FK_neve", "-_id");
             if (document) {
                 res.send(document);
             } else {
@@ -42,7 +64,7 @@ export default class nsideController implements Controller {
         }
     };
 
-    private getByKeyword = async (req: Request, res: Response) => {
+    private getManyByKeyword = async (req: Request, res: Response) => {
         // Example of filtering in both side:
         try {
             const myRegex = new RegExp(req.params.keyword, "i"); // "i" for case-insensitive
@@ -52,7 +74,7 @@ export default class nsideController implements Controller {
             // https://www.mongodb.com/docs/manual/tutorial/aggregation-zip-code-data-set/
             // https://www.practical-mongodb-aggregations.com/
 
-            const data = await this.nsideM.aggregate([
+            const data = await this.many.aggregate([
                 {
                     $lookup: { from: "TáblaNeve1", foreignField: "_id", localField: "FK_neve", as: "FK_neve" },
                     // from: The name of the one-side collection!!!
@@ -76,7 +98,7 @@ export default class nsideController implements Controller {
         }
     };
 
-    private getPaginatedData = async (req: Request, res: Response) => {
+    private getManyPaginated = async (req: Request, res: Response) => {
         try {
             const offset = parseInt(req.params.offset);
             const limit = parseInt(req.params.limit);
@@ -85,15 +107,15 @@ export default class nsideController implements Controller {
             let count = 0;
             if (req.params.filter && req.params.filter != "") {
                 const myRegex = new RegExp(req.params.filter, "i"); // i for case insensitive
-                count = await this.nsideM.find({ $or: [{ name: myRegex }, { description: myRegex }] }).countDocuments();
-                paginatedData = await this.nsideM
+                count = await this.many.find({ $or: [{ name: myRegex }, { description: myRegex }] }).countDocuments();
+                paginatedData = await this.many
                     .find({ $or: [{ name: myRegex }, { description: myRegex }] })
                     .sort(sortingfield)
                     .skip(offset)
                     .limit(limit);
             } else {
-                count = await this.nsideM.countDocuments();
-                paginatedData = await this.nsideM.find({}).sort(sortingfield).skip(offset).limit(limit);
+                count = await this.many.countDocuments();
+                paginatedData = await this.many.find({}).sort(sortingfield).skip(offset).limit(limit);
             }
             res.append("x-total-count", `${count}`); // append total count of documents to response header
             res.send(paginatedData);
@@ -102,10 +124,10 @@ export default class nsideController implements Controller {
         }
     };
 
-    private create = async (req: Request, res: Response) => {
+    private createMany = async (req: Request, res: Response) => {
         try {
             const body = req.body;
-            const createdDocument = new this.nsideM({
+            const createdDocument = new this.many({
                 ...body,
             });
             const savedDocument = await createdDocument.save();
@@ -115,11 +137,11 @@ export default class nsideController implements Controller {
         }
     };
 
-    private modifyPATCH = async (req: Request, res: Response) => {
+    private modifyManyPATCH = async (req: Request, res: Response) => {
         try {
             const id = req.params.id;
             const body = req.body;
-            const updatedDoc = await this.nsideM.findByIdAndUpdate(id, body, { new: true, runValidators: true }).populate("FK_neve", "-_id");
+            const updatedDoc = await this.many.findByIdAndUpdate(id, body, { new: true, runValidators: true }).populate("FK_neve", "-_id");
             if (updatedDoc) {
                 res.send(updatedDoc);
             } else {
@@ -130,13 +152,13 @@ export default class nsideController implements Controller {
         }
     };
 
-    private modifyPUT = async (req: Request, res: Response) => {
+    private modifyManyPUT = async (req: Request, res: Response) => {
         try {
             const id = req.params.id;
             const body = req.body;
-            const modificationResult = await this.nsideM.replaceOne({ _id: id }, body, { runValidators: true });
+            const modificationResult = await this.many.replaceOne({ _id: id }, body, { runValidators: true });
             if (modificationResult.modifiedCount) {
-                const updatedDoc = await this.nsideM.findById(id).populate("FK_neve", "-_id");
+                const updatedDoc = await this.many.findById(id).populate("FK_neve", "-_id");
                 res.send(updatedDoc);
             } else {
                 res.status(404).send({ message: `Document with id ${id} not found!` });
@@ -146,15 +168,28 @@ export default class nsideController implements Controller {
         }
     };
 
-    private delete = async (req: Request, res: Response) => {
+    private deleteMany = async (req: Request, res: Response) => {
         try {
             const id = req.params.id;
-            const successResponse = await this.nsideM.findByIdAndDelete(id);
+            const successResponse = await this.many.findByIdAndDelete(id);
             if (successResponse) {
                 res.sendStatus(200);
             } else {
                 res.status(404).send({ message: `Document with id ${id} not found!` });
             }
+        } catch (error) {
+            res.status(400).send({ message: error.message });
+        }
+    };
+
+    // Other-side handlers:
+    // *************************************************************************************
+    private getOtherAll = async (req: Request, res: Response) => {
+        try {
+            const data = await this.other.find();
+            // or:
+            // const data = await this.other.find().populate("virtualPop");
+            res.send(data);
         } catch (error) {
             res.status(400).send({ message: error.message });
         }

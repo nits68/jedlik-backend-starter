@@ -3,11 +3,30 @@ import { Schema, SchemaDefinition, model } from "mongoose";
 // https://mongoosejs.com/docs/validation.html
 // https://transform.tools/json-to-mongoose
 
-const nsideSchema = new Schema<SchemaDefinition>(
+// ************************************************
+const oneSideSchema = new Schema<SchemaDefinition>(
+    {
+        _id: Number,
+        name: {
+            type: String,
+            required: true,
+        },
+        email: {
+            type: String,
+            required: true,
+        },
+    },
+    // Virtuals are not included in string version of the model instances by default.
+    // To include them, set the virtuals option to true on schema’s toObject and toJSON options.
+    { versionKey: false, id: false, toJSON: { virtuals: true }, toObject: { virtuals: true } },
+);
+
+// ************************************************
+const manySideSchema = new Schema<SchemaDefinition>(
     {
         _id: Number, // default type of PK (with _id identifier): Schema.Types.ObjectId
         FK_neve: {
-            ref: "oneside", // "onside" -> 1 oldali modell neve, nem kell átírni!
+            ref: "oneSideID", // "oneSideID" -> 1 oldali modell azonosítója, nem kell átírni!
             type: Number,
             required: true,
             index: true,
@@ -73,19 +92,39 @@ const nsideSchema = new Schema<SchemaDefinition>(
     { versionKey: false, id: false, toJSON: { virtuals: true }, toObject: { virtuals: true } },
 );
 
+// ************************************************
+const otherSideSchema = new Schema<SchemaDefinition>(
+    {
+        _id: Number,
+        other: {
+            type: String,
+            required: true,
+            default: "Other field default value",
+        },
+        startDate: {
+            type: Date,
+            required: true,
+            default: new Date(),
+        },
+    },
+    // Virtuals are not included in string version of the model instances by default.
+    // To include them, set the virtuals option to true on schema’s toObject and toJSON options.
+    { versionKey: false, id: false, toJSON: { virtuals: true }, toObject: { virtuals: true } },
+);
+
 // Mongoose also supports populating virtuals.
 // Help: https://mongoosejs.com/docs/tutorials/virtuals.html#populate
 // You can give the "virtualPop" any name you want:
-// nsideSchema.virtual("virtualPop", {
-//     ref: "oneside",
+// manysideSchema.virtual("virtualPop", {
+//     ref: "oneSideID",
 //     localField: "FK_neve",
 //     foreignField: "_id", //ref_Field
 //     justOne: true,
 // });
 
-// Use virtual for populate in nSide controller:
-// const data = await this.nsideM.find().populate("populateFieldNside", "-_id field1 field2 -field3 ...");
+// Use virtual for populate in manySide controller:
+// const data = await this.manySide.find().populate("populateFieldManyside", "-_id field1 field2 -field3 ...");
 
-const nsideModel = model("nside", nsideSchema, "TáblaNeveN");
-
-export default nsideModel;
+export const oneSideModel = model("oneSideID", oneSideSchema, "TáblaNeveOne");
+export const manySideModel = model("manySideID", manySideSchema, "TáblaNeveMany");
+export const otherSideModel = model("otherSideID", otherSideSchema, "TáblaNeveOther");

@@ -1,6 +1,4 @@
 import App from "./app";
-// remove onesideController or nsideController, if you don't use it:
-import nsideController from "./controllers/nside.controller";
-import onesideController from "./controllers/oneside.controller";
+import myController from "./controller";
 
-new App([new nsideController(), new onesideController()]);
+new App([new myController()]);
