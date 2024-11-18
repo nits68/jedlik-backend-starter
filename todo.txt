@@ -3,7 +3,8 @@ Előkészületek:
 1. Backend vizsga starter repo klónozása, átnevezése, npm i
 2. VS CODE indítása, frissítések, ajánlott csomagok telepítése
 3. Csoportos átnevezések 6db (azonoítókért lsd. mongo.bat és feladatlap):
-    AdatbázisNeve, TáblaNeveOne, TáblaNeveMany, TáblaNeveOther, FK_neve, /api/xyzMany
+    AdatbázisNeve, TáblaNeveOne, TáblaNeveMany, TáblaNeveOther, FK_neve, /api/xyzMany*
+    * ->  Csak az "xyzMany" kerüljön átnevezésre Postman esetén
 
 Feladatmegoldás:
 ================
