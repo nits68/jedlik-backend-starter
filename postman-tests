@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "c3729cec-0d43-41bd-9d9c-9e4354c503a8",
+		"_postman_id": "7f5a24a1-a29b-48fb-bc16-2795cd2e003f",
 		"name": "jedlik-backend-starter",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "13294158"
@@ -153,7 +153,7 @@
 			"response": []
 		},
 		{
-			"name": "modifyManyPUT Copy",
+			"name": "modifyManyPATCH",
 			"request": {
 				"method": "PATCH",
 				"header": [],
