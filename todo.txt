@@ -2,7 +2,7 @@ Előkészületek:
 ==============
 1. Backend vizsga starter repo klónozása, átnevezése, npm i
 2. VS CODE indítása, frissítések, ajánlott csomagok telepítése
-3. Csoportos átnevezések 6db (azonoítókért lsd. mongo.bat és feladatlap):
+3. Csoportos átnevezések 6db (azonoítókért lsd. forrás mongo.bat és feladatlap):
     AdatbázisNeve, TáblaNeveOne, TáblaNeveMany, TáblaNeveOther, FK_neve, /api/xyzMany*
     * ->  Csak az "xyzMany" kerüljön átnevezésre Postman esetén
 
@@ -16,5 +16,5 @@ Feladatmegoldás:
 6. "one", "many" és "other" oldali kontrollerek (routes, handlers) aktualizálása: controllers.ts
   Postman request-ek aktualizálása
 7. "Takarítás": model-ek, controller-ek, Postman felesleges példa request-ek
-8. Postman kollekció exportálása a megadott helyre és néven
+8. Postman kollekció exportálása a megadott helyre és néven (alapértelmezetten nincs kiterjesztés az exportnál)
 9. Felesleges állományok, mappák (node_modules) törlése, majd a projekt becsomagolása a megadott helyre és néven
