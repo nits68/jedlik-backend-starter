@@ -10,7 +10,7 @@ Feladatmegoldás:
 ================
 1. "one", "many" oldali táblák modelljeinek aktualizálása: models.ts
 2. Mongo szerver indítása: cmd -> startMongoDB.bat futtatása
-3. Adatbázis és a kollekciók (táblák) létrehozása, mintaadatok feltöltése a kiadott mongo.bat, vagy a sablon mongo_import/mongo.bat futtatásával.
+3. Adatbázis és a kollekciók (táblák) létrehozása, mintaadatok feltöltése a kiadott mongo.bat, vagy a sablon mongo_import/mongo_v*.bat futtatásával.
 4. Fordítás indítása ("npm run dev" vagy Ctrl-Shift-B)
 5. Postman teszt kollekció importálása: postman_tests.json
 6. "one" és "many" oldali kontrollerek (routes, handlers) aktualizálása: controllers.ts

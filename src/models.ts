@@ -16,15 +16,13 @@ const oneSideSchema = new Schema<SchemaDefinition>(
             required: true,
         },
     },
-    // Virtuals are not included in string version of the model instances by default.
-    // To include them, set the virtuals option to true on schema’s toObject and toJSON options.
     { versionKey: false, id: false, toJSON: { virtuals: true }, toObject: { virtuals: true } },
 );
 
 // ************************************************
 const manySideSchema = new Schema<SchemaDefinition>(
     {
-        _id: Number, // default type of PK (with _id identifier): Schema.Types.ObjectId
+        _id: Number,
         FK_neve: {
             ref: "oneSideID", // "oneSideID" -> 1 oldali modell azonosítója, nem kell átírni!
             type: Number,
@@ -86,9 +84,6 @@ const manySideSchema = new Schema<SchemaDefinition>(
             },
         },
     },
-    // Mongoose Virtuals: https://mongoosejs.com/docs/tutorials/virtuals.html
-    // Virtuals are not included in string version of the model instances by default.
-    // To include them, set the virtuals option to true on schema’s toObject and toJSON options.
     { versionKey: false, id: false, toJSON: { virtuals: true }, toObject: { virtuals: true } },
 );
 

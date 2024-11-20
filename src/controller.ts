@@ -12,8 +12,8 @@ export default class myController implements IController {
         this.router.get("/api/xyzOne", this.getOneAll);
 
         // Many-side example routes:
-        this.router.get("/api/xyzMany/:id", this.getManyAll);
-        // this.router.get("/api/xyzMany/:id", this.getManyById);
+        this.router.get("/api/xyzMany", this.getManyAll);
+        this.router.get("/api/xyzMany/:id", this.getManyById);
         this.router.get("/api/xyzMany/keyword/:keyword", this.getManyByKeyword);
         this.router.get(`/api/xyzMany/:offset/:limit/:sortingfield/:filter?`, this.getManyPaginated);
         this.router.post("/api/xyzMany", this.createMany);
