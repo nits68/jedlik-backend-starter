@@ -12,8 +12,8 @@ export default class myController implements IController {
         this.router.get("/api/xyzOne", this.getOneAll);
 
         // Many-side example routes:
-        this.router.get("/api/xyzMany/", this.getManyAll);
-        this.router.get("/api/xyzMany/:id", this.getManyById);
+        this.router.get("/api/xyzMany/:id", this.getManyAll);
+        // this.router.get("/api/xyzMany/:id", this.getManyById);
         this.router.get("/api/xyzMany/keyword/:keyword", this.getManyByKeyword);
         this.router.get(`/api/xyzMany/:offset/:limit/:sortingfield/:filter?`, this.getManyPaginated);
         this.router.post("/api/xyzMany", this.createMany);
@@ -27,7 +27,7 @@ export default class myController implements IController {
         try {
             const data = await this.one.find();
             // or:
-            // const data = await this.many.find().populate("virtualPop");
+            // const data = await this.one.find().populate("virtualPop");
             res.send(data);
         } catch (error) {
             res.status(400).send({ message: error.message });
@@ -72,7 +72,7 @@ export default class myController implements IController {
 
             const data = await this.many.aggregate([
                 {
-                    $lookup: { from: "TáblaNeve1", foreignField: "_id", localField: "FK_neve", as: "FK_neve" },
+                    $lookup: { from: "TáblaNeveOne", foreignField: "_id", localField: "FK_neve", as: "FK_neve" },
                     // from: The name of the one-side collection!!!
                     // foreignField: Linking field of one-side collection (here the PK: _id)
                     // localField: Linking field of n-side collection (here the FK: FK_neve)
