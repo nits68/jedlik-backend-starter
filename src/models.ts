@@ -92,26 +92,6 @@ const manySideSchema = new Schema<SchemaDefinition>(
     { versionKey: false, id: false, toJSON: { virtuals: true }, toObject: { virtuals: true } },
 );
 
-// ************************************************
-const otherSideSchema = new Schema<SchemaDefinition>(
-    {
-        _id: Number,
-        other: {
-            type: String,
-            required: true,
-            default: "Other field default value",
-        },
-        startDate: {
-            type: Date,
-            required: true,
-            default: new Date(),
-        },
-    },
-    // Virtuals are not included in string version of the model instances by default.
-    // To include them, set the virtuals option to true on schema’s toObject and toJSON options.
-    { versionKey: false, id: false, toJSON: { virtuals: true }, toObject: { virtuals: true } },
-);
-
 // Mongoose also supports populating virtuals.
 // Help: https://mongoosejs.com/docs/tutorials/virtuals.html#populate
 // You can give the "virtualPop" any name you want:
@@ -127,4 +107,3 @@ const otherSideSchema = new Schema<SchemaDefinition>(
 
 export const oneSideModel = model("oneSideID", oneSideSchema, "TáblaNeveOne");
 export const manySideModel = model("manySideID", manySideSchema, "TáblaNeveMany");
-export const otherSideModel = model("otherSideID", otherSideSchema, "TáblaNeveOther");

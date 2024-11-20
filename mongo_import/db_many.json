@@ -4,7 +4,7 @@
         "minMaxExample": 1,
         "prepTime": 12,
         "isGlutenFree": true,
-        "description": "leírás szövege ide kerül majdanán k2",
+        "description": "leírás szövege ide kerül majdanán",
         "name": "recept neve 1",
         "FK_neve": 1,
         "dateExample": "2026.07.20"
@@ -14,7 +14,7 @@
         "minMaxExample": 4,
         "prepTime": 34,
         "isGlutenFree": false,
-        "description": "ide kerül majdanán k1",
+        "description": "ide kerül majdanán",
         "name": "recept neve 2",
         "FK_neve": 2,
         "dateExample": "2026.07.21"

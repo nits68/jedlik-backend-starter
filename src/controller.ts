@@ -1,12 +1,11 @@
 import { Request, Response, Router } from "express";
 import IController from "./interfaces";
-import { oneSideModel, manySideModel, otherSideModel } from "./models";
+import { oneSideModel, manySideModel } from "./models";
 
 export default class myController implements IController {
     public router = Router();
     private one = oneSideModel;
     private many = manySideModel;
-    private other = otherSideModel;
 
     constructor() {
         // One-side example routes:
@@ -21,9 +20,6 @@ export default class myController implements IController {
         this.router.patch("/api/xyzMany/:id", this.modifyManyPATCH);
         this.router.put("/api/xyzMany/:id", this.modifyManyPUT);
         this.router.delete("/api/xyzMany/:id", this.deleteMany);
-
-        // Other-side routes:
-        this.router.get("/api/xyzOther", this.getOtherAll);
     }
 
     // One-side handlers *********************************************
@@ -177,18 +173,6 @@ export default class myController implements IController {
             } else {
                 res.status(404).send({ message: `Document with id ${id} not found!` });
             }
-        } catch (error) {
-            res.status(400).send({ message: error.message });
-        }
-    };
-
-    // Other-side handlers *********************************************
-    private getOtherAll = async (req: Request, res: Response) => {
-        try {
-            const data = await this.other.find();
-            // or:
-            // const data = await this.other.find().populate("virtualPop");
-            res.send(data);
         } catch (error) {
             res.status(400).send({ message: error.message });
         }

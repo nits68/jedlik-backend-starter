@@ -1,7 +1,7 @@
 {
     "name": "jedlik-express-mongoose-ts-backend-template",
     "version": "1.0.0",
-    "description": "Jedlik project template for backend exam.",
+    "description": "Jedlik project template for backend exam witw 2 collections",
     "main": "src/server.ts",
     "repository": {
         "private": false,
