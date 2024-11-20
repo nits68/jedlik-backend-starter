@@ -3,34 +3,11 @@ import { Schema, SchemaDefinition, model } from "mongoose";
 // https://mongoosejs.com/docs/validation.html
 // https://transform.tools/json-to-mongoose
 
-// ************************************************
-const oneSideSchema = new Schema<SchemaDefinition>(
-    {
-        _id: Number,
-        name: {
-            type: String,
-            required: true,
-        },
-        email: {
-            type: String,
-            required: true,
-        },
-    },
-    // Virtuals are not included in string version of the model instances by default.
-    // To include them, set the virtuals option to true on schema’s toObject and toJSON options.
-    { versionKey: false, id: false, toJSON: { virtuals: true }, toObject: { virtuals: true } },
-);
 
 // ************************************************
 const manySideSchema = new Schema<SchemaDefinition>(
     {
         _id: Number, // default type of PK (with _id identifier): Schema.Types.ObjectId
-        FK_neve: {
-            ref: "oneSideID", // "oneSideID" -> 1 oldali modell azonosítója, nem kell átírni!
-            type: Number,
-            required: true,
-            index: true,
-        },
         name: {
             type: String,
             required: true,
@@ -92,18 +69,4 @@ const manySideSchema = new Schema<SchemaDefinition>(
     { versionKey: false, id: false, toJSON: { virtuals: true }, toObject: { virtuals: true } },
 );
 
-// Mongoose also supports populating virtuals.
-// Help: https://mongoosejs.com/docs/tutorials/virtuals.html#populate
-// You can give the "virtualPop" any name you want:
-// manysideSchema.virtual("virtualPop", {
-//     ref: "oneSideID",
-//     localField: "FK_neve",
-//     foreignField: "_id", //ref_Field
-//     justOne: true,
-// });
-
-// Use virtual for populate in manySide controller:
-// const data = await this.manySide.find().populate("populateFieldManyside", "-_id field1 field2 -field3 ...");
-
-export const oneSideModel = model("oneSideID", oneSideSchema, "TáblaNeveOne");
 export const manySideModel = model("manySideID", manySideSchema, "TáblaNeveMany");

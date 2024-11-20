@@ -1,16 +1,12 @@
 import { Request, Response, Router } from "express";
 import IController from "./interfaces";
-import { oneSideModel, manySideModel } from "./models";
+import { manySideModel } from "./models";
 
 export default class myController implements IController {
     public router = Router();
-    private one = oneSideModel;
     private many = manySideModel;
 
     constructor() {
-        // One-side example routes:
-        this.router.get("/api/xyzOne", this.getOneAll);
-
         // Many-side example routes:
         this.router.get("/api/xyzMany/", this.getManyAll);
         this.router.get("/api/xyzMany/:id", this.getManyById);
@@ -21,18 +17,6 @@ export default class myController implements IController {
         this.router.put("/api/xyzMany/:id", this.modifyManyPUT);
         this.router.delete("/api/xyzMany/:id", this.deleteMany);
     }
-
-    // One-side handlers *********************************************
-    private getOneAll = async (req: Request, res: Response) => {
-        try {
-            const data = await this.one.find();
-            // or:
-            // const data = await this.many.find().populate("virtualPop");
-            res.send(data);
-        } catch (error) {
-            res.status(400).send({ message: error.message });
-        }
-    };
 
     // Many-side handlers *********************************************
     private getManyAll = async (req: Request, res: Response) => {

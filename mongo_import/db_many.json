@@ -6,7 +6,6 @@
         "isGlutenFree": true,
         "description": "leírás szövege ide kerül majdanán",
         "name": "recept neve 1",
-        "FK_neve": 1,
         "dateExample": "2026.07.20"
     },
     {
@@ -16,7 +15,6 @@
         "isGlutenFree": false,
         "description": "ide kerül majdanán",
         "name": "recept neve 2",
-        "FK_neve": 2,
         "dateExample": "2026.07.21"
     }
 ]
