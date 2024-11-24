@@ -72,21 +72,22 @@ export default class myController implements IController {
 
             const data = await this.many.aggregate([
                 {
-                    $lookup: { from: "TáblaNeveOne", foreignField: "_id", localField: "FK_neve", as: "FK_neve" },
-                    // from: The name of the one-side collection!!!
-                    // foreignField: Linking field of one-side collection (here the PK: _id)
-                    // localField: Linking field of n-side collection (here the FK: FK_neve)
-                    // as: alias name, here "FK_neve", but it can be anything you like
+                    $lookup: { from: "TáblaNeveOne", foreignField: "_id", localField: "FK_neve", as: "as_FK_neve" },
+                    // from: The name of the oneSide table (not the model's name)!!!
+                    // foreignField: Linking field of oneSide table (here the PK: _id)
+                    // localField: Linking field of manySide table (here the FK: FK_neve)
+                    // as: alias name, here "as_FK_neve", but it can be anything you like
                 },
                 {
-                    $match: { $or: [{ "FK_neve.field1": myRegex }, { description: myRegex }] },
+                    $match: { $or: [{ "as_FK_neve.field1": myRegex }, { description: myRegex }] },
                     // $match: { "FK_neve.field1": req.params.keyword },
                 },
                 {
                     // convert array of objects to simple array (alias name):
-                    $unwind: "$FK_neve",
+                    $unwind: "$as_FK_neve",
                 },
-                { $project: { _id: 0, prepTime: 0, "FK_neve._id": 0 } },
+                // { $addFields: { "newField": "$as_FK_neve.oldField" },
+                { $project: { _id: 0, prepTime: 0, "as_FK_neve._id": 0 } },
             ]);
             res.send(data);
         } catch (error) {
@@ -101,7 +102,7 @@ export default class myController implements IController {
             const sortingfield = req.params.sortingfield; // with "-" prefix made DESC order
             let paginatedData = [];
             let count = 0;
-            if (req.params.filter && req.params.filter != "") {
+            if (req?.params?.filter != "") {
                 const myRegex = new RegExp(req.params.filter, "i"); // i for case insensitive
                 count = await this.many.find({ $or: [{ name: myRegex }, { description: myRegex }] }).countDocuments();
                 paginatedData = await this.many

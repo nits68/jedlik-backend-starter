@@ -4,7 +4,7 @@ Előkészületek:
 2. VS CODE indítása, frissítések, ajánlott csomagok telepítése
 3. Csoportos átnevezések 5db (azonoítókért lsd. forrás mongo.bat és feladatlap):
     AdatbázisNeve, TáblaNeveOne, TáblaNeveMany, FK_neve, /api/xyzMany*
-    * ->  Csak az "xyzMany" kerüljön átnevezésre Postman esetén
+    * ->  "Domináns" route, jellemzően a manySide-hoz tartozik, csak az "xyzMany" kerüljön átnevezésre Postman esetén
 
 Feladatmegoldás:
 ================
@@ -13,8 +13,8 @@ Feladatmegoldás:
 3. Adatbázis és a kollekciók (táblák) létrehozása, mintaadatok feltöltése a kiadott mongo.bat, vagy a sablon mongo_import/mongo_v*.bat futtatásával.
 4. Fordítás indítása ("npm run dev" vagy Ctrl-Shift-B)
 5. Postman teszt kollekció importálása: postman_tests.json
-6. "one" és "many" oldali kontrollerek (routes, handlers) aktualizálása: controllers.ts
-  Postman request-ek aktualizálása
+6. "one" és "many" oldali kontrollerek (routes, handlers) aktualizálása: controllers.ts,
+    majd Postman request-ek aktualizálása  folyamatosan (teszt)
 7. "Takarítás": model-ek, controller-ek, Postman felesleges példa request-ek
 8. Postman kollekció exportálása a megadott helyre és néven (alapértelmezetten nincs kiterjesztés az exportnál)
-9. Felesleges állományok, mappák (node_modules) törlése, majd a projekt becsomagolása a megadott helyre és néven
+9. Felesleges állományok, mappák (.git, node_modules) törlése, majd a projekt becsomagolása a megadott helyre és néven
