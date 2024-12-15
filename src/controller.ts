@@ -10,6 +10,8 @@ export default class myController implements IController {
     constructor() {
         // One-side example routes:
         this.router.get("/api/xyzOne", this.getOneAll);
+        this.router.post("/api/xyzOne", this.createOne);
+        this.router.delete("/api/xyzOne/:id", this.deleteOne);
 
         // Many-side example routes:
         this.router.get("/api/xyzMany", this.getManyAll);
@@ -29,6 +31,47 @@ export default class myController implements IController {
             // or:
             // const data = await this.one.find().populate("virtualPop");
             res.send(data);
+        } catch (error) {
+            res.status(400).send({ message: error.message });
+        }
+    };
+
+    private createOne = async (req: Request, res: Response) => {
+        try {
+            const body = req.body;
+            // with _id "auto increment" sulution:
+            let autoId: number = 1;
+            const oneAll = await this.one.find();
+            if (oneAll.length > 0) {
+                autoId = Math.max(...oneAll.map(d => d._id as number)) + 1;
+            }
+            const createdDocument = new this.one({
+                _id: autoId,
+                ...body,
+            });
+
+            const savedDocument = await createdDocument.save();
+            res.status(201).send(savedDocument);
+        } catch (error) {
+            res.status(400).send({ message: error.message });
+        }
+    };
+
+    private deleteOne = async (req: Request, res: Response) => {
+        try {
+            const id = req.params.id;
+            // Check if document has reference in manySide table:
+            const refDocuments = await this.many.find({ FK_neve: id });
+            if (refDocuments.length > 0) {
+                res.status(403).send({ message: `Document with id ${id} has reference in manySide table!` });
+            } else {
+                const successResponse = await this.one.findByIdAndDelete(id);
+                if (successResponse) {
+                    res.sendStatus(204);
+                } else {
+                    res.status(404).send({ message: `Document with id ${id} not found!` });
+                }
+            }
         } catch (error) {
             res.status(400).send({ message: error.message });
         }
