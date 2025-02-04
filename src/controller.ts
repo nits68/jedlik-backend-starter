@@ -61,8 +61,8 @@ export default class myController implements IController {
         try {
             const id = req.params.id;
             // Check if document has reference in manySide table:
-            const refDocuments = await this.many.find({ FK_neve: id });
-            if (refDocuments.length > 0) {
+            const refDocuments = await this.many.findOne({ FK_neve: id });
+            if (refDocuments) {
                 res.status(403).send({ message: `Document with id ${id} has reference in manySide table!` });
             } else {
                 const successResponse = await this.one.findByIdAndDelete(id);
