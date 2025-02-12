@@ -1,6 +1,7 @@
 import { Request, Response, Router } from "express";
 import IController from "./interfaces";
 import { oneSideModel, manySideModel } from "./models";
+import mongoose from "mongoose";
 
 export default class myController implements IController {
     public router = Router();
@@ -8,10 +9,13 @@ export default class myController implements IController {
     private many = manySideModel;
 
     constructor() {
+        // Exam routes:
+
         // One-side example routes:
         this.router.get("/api/xyzOne", this.getOneAll);
         this.router.post("/api/xyzOne", this.createOne);
         this.router.delete("/api/xyzOne/:id", this.deleteOne);
+        this.router.delete("/api/xyzOne/transaction/:id", this.deleteOneWithTransaction);
 
         // Many-side example routes:
         this.router.get("/api/xyzMany", this.getManyAll);
@@ -23,6 +27,8 @@ export default class myController implements IController {
         this.router.put("/api/xyzMany/:id", this.modifyManyPUT);
         this.router.delete("/api/xyzMany/:id", this.deleteMany);
     }
+
+    // Exam handlers ***********************************************
 
     // One-side handlers *********************************************
     private getOneAll = async (req: Request, res: Response) => {
@@ -74,6 +80,29 @@ export default class myController implements IController {
             }
         } catch (error) {
             res.status(400).send({ message: error.message });
+        }
+    };
+
+    private deleteOneWithTransaction = async (req: Request, res: Response) => {
+        // deletOne with cascade delete in manySide table and transaction handling
+
+        // Init transaction:
+        const session = await mongoose.startSession();
+        session.startTransaction(); 
+        
+        try {
+            const id = req.params.id;
+            await this.one.findByIdAndDelete(id).session(session);
+            await this.many.deleteMany({ FK_neve: id }).session(session);
+            // if no error in delete commands, commit transaction:
+            await session.commitTransaction();
+            res.sendStatus(204);
+        } catch (error) {
+            // Rollback transaction:
+            await session.abortTransaction();
+            res.status(400).send({ message: error.message });
+        } finally {
+            session.endSession();
         }
     };
 
