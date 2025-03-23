@@ -1,25 +1,26 @@
 {
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "Debug in VS Code",
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "node",
-      "runtimeArgs": [
-        "--nolazy",
-        "-r",
-        "ts-node/register/transpile-only"
-      ],
-      "args": [
-        "src/server.ts"
-      ],
-      "cwd": "${workspaceRoot}",
-      "internalConsoleOptions": "openOnSessionStart",
-      "skipFiles": [
-        "<node_internals>/**",
-        "node_modules/**"
-      ]
-    }
-  ]
+    "version": "2.0.0",
+    "configurations": [
+        {
+            "name": "Debug TypeScript",
+            "type": "node",
+            "request": "attach",
+            "restart": false,
+            "port": 9229,
+            "skipFiles": ["${workspaceRoot}/node_modules/**", "<node_internals>/**"]
+        },
+        {
+            "name": "Debug Jest Tests",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "args": ["--inspect-brk", "${workspaceRoot}/node_modules/.bin/jest", "--runInBand"],
+            "windows": {
+                "args": ["--inspect-brk", "${workspaceRoot}/node_modules/jest/bin/jest.js", "--runInBand"]
+            },
+            "skipFiles": ["${workspaceRoot}/node_modules/**", "<node_internals>/**"],
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        }
+    ]
 }

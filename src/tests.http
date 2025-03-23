@@ -1,0 +1,69 @@
+### getOneAll
+GET http://localhost:5000/api/xyzOne  HTTP/1.1
+
+### createOne
+POST http://localhost:5000/api/xyzOne HTTP/1.1
+Content-Type: application/json
+
+{
+    "_id": 99,
+    "name": "name99",
+    "email": "name99@gmail.com"
+}
+
+### deleteOne
+DELETE http://localhost:5000/api/xyzOne/2  HTTP/1.1
+
+
+### getManyAll
+GET http://localhost:5000/api/xyzMany  HTTP/1.1
+
+### getManyById
+GET http://localhost:5000/api/xyzMany/1  HTTP/1.1
+
+### getManyByKeyword
+GET http://localhost:5000/api/xyzMany/keyword/kerül HTTP/1.1
+
+### getManyPaginated
+GET http://localhost:5000/api/xyzMany/0/2/-prepTime/kerül HTTP/1.1
+
+### createMany
+POST http://localhost:5000/api/xyzMany HTTP/1.1
+Content-Type: application/json
+
+{
+    "_id": 99,
+    "minMaxExample": 2,
+    "prepTime": 12,
+    "isGlutenFree": true,
+    "description": "leírás szövege ide kerül majdanán",
+    "name": "recept neve 99",
+    "FK_neve": 1,
+    "dateExample": "2025-07-19T22:00:00.000Z"
+}
+
+### modifyManyPUT
+PUT http://localhost:5000/api/xyzMany/99 HTTP/1.1
+Content-Type: application/json
+
+{
+    "minMaxExample": 2,
+    "prepTime": 12,
+    "isGlutenFree": true,
+    "description": "leírás szövege ide kerül majdanán",
+    "name": "recept neve 99",
+    "FK_neve": 1,
+    "dateExample": "2025-07-19T22:00:00.000Z"
+}
+
+### modifyManyPATCH
+PATCH http://localhost:5000/api/xyzMany/99 HTTP/1.1
+Content-Type: application/json
+
+{
+    "description": "leírás szövege ide kerül majdanán new"
+}
+
+### deleteMany
+DELETE http://localhost:5000/api/xyzMany/99  HTTP/1.1
+
