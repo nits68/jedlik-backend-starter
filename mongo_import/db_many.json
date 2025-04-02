@@ -2,21 +2,89 @@
     {
         "_id": 1,
         "minMaxExample": 1,
-        "prepTime": 12,
+        "prepTime": 45,
         "isGlutenFree": true,
-        "description": "leírás szövege ide kerül majdanán",
+        "description": "1. leírás szövege ide kerül majdanán",
         "name": "recept neve 1",
         "FK_neve": 1,
-        "dateExample": "2026.07.20"
+        "customValidatorExample": 2,
+        "dateExample": "2026.07.18"
     },
     {
         "_id": 2,
         "minMaxExample": 4,
-        "prepTime": 34,
+        "prepTime": 78,
         "isGlutenFree": false,
-        "description": "ide kerül majdanán",
+        "description": "2. leírás szövege ide kerül majdanán",
         "name": "recept neve 2",
         "FK_neve": 2,
-        "dateExample": "2026.07.21"
+        "customValidatorExample": 4,
+        "dateExample": "2026.07.16"
+    },
+    {
+        "_id": 3,
+        "minMaxExample": 41,
+        "prepTime": 32,
+        "isGlutenFree": true,
+        "description": "3. leírás szövege ide kerül majdanán",
+        "name": "recept neve 3",
+        "FK_neve": 3,
+        "customValidatorExample": 4,
+        "dateExample": "2026.07.18"
+    },
+    {
+        "_id": 4,
+        "minMaxExample": 12,
+        "prepTime": 67,
+        "isGlutenFree": true,
+        "description": "4. leírás szövege ide kerül majdanán",
+        "name": "recept neve 4",
+        "FK_neve": 4,
+        "customValidatorExample": 6,
+        "dateExample": "2026.07.12"
+    },
+    {
+        "_id": 5,
+        "minMaxExample": 1,
+        "prepTime": 89,
+        "isGlutenFree": true,
+        "description": "5. leírás szövege ide kerül majdanán",
+        "name": "recept neve 5",
+        "FK_neve": 5,
+        "customValidatorExample": 2,
+        "dateExample": "2026.07.12"
+    },
+    {
+        "_id": 6,
+        "minMaxExample": 1,
+        "prepTime": 23,
+        "isGlutenFree": true,
+        "description": "6. leírás szövege ide kerül majdanán",
+        "name": "recept neve 6",
+        "FK_neve": 6,
+        "customValidatorExample": 4,
+        "dateExample": "2026.07.20"
+    },
+    {
+        "_id": 7,
+        "minMaxExample": 1,
+        "prepTime": 54,
+        "isGlutenFree": true,
+        "description": "7. leírás szövege ide kerül majdanán",
+        "name": "recept neve 7",
+        "FK_neve": 7,
+        "customValidatorExample": 6,
+        "dateExample": "2026.07.20"
+    },
+    {
+        "_id": 8,
+        "minMaxExample": null,
+        "prepTime": 76,
+        "isGlutenFree": null,
+        "description": "7. leírás szövege ide kerül majdanán",
+        "name": "recept neve 8",
+        "FK_neve": 6,
+        "customValidatorExample": 4,
+        "dateExample": "2026.07.20"
     }
 ]

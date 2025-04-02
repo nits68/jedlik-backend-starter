@@ -21,6 +21,7 @@ export default class myController implements IController {
         this.router.get("/api/xyzMany", this.getManyAll);
         this.router.get("/api/xyzMany/:id", this.getManyById);
         this.router.get("/api/xyzMany/keyword/:keyword", this.getManyByKeyword);
+        this.router.get("/api/xyzMany-Group-By", this.getGroupByExample);
         this.router.get(`/api/xyzMany/:offset/:limit/:sortingfield/:filter?`, this.getManyPaginated);
         this.router.post("/api/xyzMany", this.createMany);
         this.router.patch("/api/xyzMany/:id", this.modifyManyPATCH);
@@ -164,6 +165,74 @@ export default class myController implements IController {
             res.send(data);
         } catch (error) {
             res.status(400).send({ message: error.message });
+        }
+    };
+
+    private getGroupByExample = async (req: Request, res: Response) => {
+        try {
+            const result = await manySideModel.aggregate([
+                // Összekapcsolás (FROM - JOIN)
+                {
+                    $lookup: {
+                        from: "TáblaNeveOne", // Az 1-oldali kollekció neve
+                        localField: "FK_neve", // Az N-oldali kollekció kapcsolatot tartó mezője
+                        foreignField: "_id", // Az 1-oldali kollekció kapcsolatot tartó mezője
+                        as: "oneSideData", // Az új mező neve (álneve)
+                    },
+                },
+                {
+                    $unwind: "$oneSideData", // oneSideData új mező "laposítása" (az egy elemű tömbből "kiveszi" az objektumot)
+                },
+                // Szűrés a csoportosítás előtt (WHERE)
+                {
+                    $match: {
+                        $and: [
+                            { "oneSideData.field1": /alue/i }, // Szűrés a field1 mező alapján (itt regex mintával, https://regex101.com/)
+                            { prepTime: { $gte: 10 } }, // Elkészítési idő >= 10
+                        ],
+                    },
+                },
+                // Csoportosítás (GROUP BY)
+                {
+                    $group: {
+                        _id: "$oneSideData.field1", // Csoportok létrehozása a field1 mező azonos értékei alapján történik
+                        avgPrepTime: { $avg: "$prepTime" }, // Átlagos elkészítési idő - AVG()
+                        totalRecipes: { $sum: 1 }, // Receptek száma - COUNT()
+                    },
+                },
+                // Szűrés a csoportosítás után (HAVING)
+                {
+                    $match: {
+                        avgPrepTime: { $gte: 10 }, // Csak azok a csoportok, ahol az átlagos elkészítési idő >= 10
+                    },
+                },
+                // Rendezés (ORDER BY)
+                {
+                    $sort: {
+                        avgPrepTime: 1, // Növekvő sorrend az átlagos elkészítési idő szerint (-1 esetén csökkenő sorrend)
+                    },
+                },
+                // Limitálás (LIMIT)
+                {
+                    $limit: 3, // Maximum 3 dokumentumot ad vissza
+                },
+                // Kiválasztás (SELECT, projekció)
+                {
+                    $project: {
+                        _id: 0, // Ne adja vissza az _id mezőt (mező átnevezése 1.)
+                        field1Custom: "$_id", // Az új mező neve az _id helyett "field1Custom" (mező átnevezése 2.)
+                        avgPrepTime: 1, // Átlagos elkészítési idő (1: megjelenítés, 0: elrejtés)
+                        totalRecipes: 1, // Receptek száma
+                    },
+                },
+            ]);
+            res.send(result);
+        } catch (error: unknown) {
+            if (error instanceof Error) {
+                res.status(400).send({ message: error.message });
+            } else {
+                res.status(400).send({ message: "An unknown error occurred!!" });
+            }
         }
     };
 
